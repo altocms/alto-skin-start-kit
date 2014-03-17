@@ -10,7 +10,7 @@
 
             <div class="col-sm-4 col-lg-4 hidden-xs">
                 {if E::IsUser()}
-                    <a href="{router page='topic'}add/" class="btn btn-success btn-write pull-right" data-toggle="modal" data-target="#modal-write">
+                    <a href="{router page='content'}add/" class="btn btn-success btn-write pull-right" data-toggle="modal" data-target="#modal-write">
                         {$aLang.block_create}
                     </a>
                 {/if}

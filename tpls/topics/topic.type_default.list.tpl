@@ -26,12 +26,12 @@
 
                 {if E::IsUser() AND (E::IsAdmin() OR E::UserId()==$oTopic->getUserId() OR E::UserId()==$oBlog->getOwnerId() OR $oBlog->getUserIsAdministrator() OR $oBlog->getUserIsModerator())}
                     <ul class="list-unstyled list-inline small actions">
-                        <li><a href="{Config::Get('path.root.url')}/{$oTopic->getType()}/edit/{$oTopic->getId()}/"
+                        <li><a href="{router page='content'}edit/{$oTopic->getId()}/"
                                title="{$aLang.topic_edit}" class="actions-edit">{$aLang.topic_edit}</a></li>
 
                         {if E::IsAdmin() OR $oBlog->getUserIsAdministrator() OR $oBlog->getOwnerId()==E::UserId()}
                             <li>
-                                <a href="{router page='topic'}delete/{$oTopic->getId()}/?security_key={$ALTO_SECURITY_KEY}"
+                                <a href="{router page='content'}delete/{$oTopic->getId()}/?security_key={$ALTO_SECURITY_KEY}"
                                    title="{$aLang.topic_delete}"
                                    onclick="return confirm('{$aLang.topic_delete_confirm}');"
                                    class="actions-delete">{$aLang.topic_delete}</a></li>
@@ -69,6 +69,7 @@
         {$oVote=$oTopic->getVote()}
         {$oFavourite=$oTopic->getFavourite()}
         <footer class="topic-footer">
+            {include file="fields/field.tags.show.tpl"}
 
             <div class="topic-share" id="topic_share_{$oTopic->getId()}">
                 {hookb run="topic_share" topic=$oTopic bTopicList=true}
@@ -93,7 +94,7 @@
                 </li>
                 <li class="topic-info-share"><a href="#" class="glyphicon glyphicon-share-alt"
                                                 title="{$aLang.topic_share}"
-                                                onclick="jQuery('#topic_share_{$oTopic->getId()}').slideToggle(); return false;"></a>
+                                                onclick="jQuery('#topic_share_' + '{$oTopic->getId()}').slideToggle(); return false;"></a>
                 </li>
 
                 <li class="topic-info-comments">

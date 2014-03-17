@@ -1,3 +1,3 @@
 {if $menu_content}
-	{include file="menu.$menu_content.content.tpl"}
+    {include file="menus/menu.$menu_content.content.tpl"}
 {/if}

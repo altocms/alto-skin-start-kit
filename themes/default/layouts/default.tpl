@@ -64,13 +64,10 @@
         var ALTO_SECURITY_KEY   = '{$ALTO_SECURITY_KEY}';
         var SESSION_ID          = '{$_sPhpSessionId}';
 
-        {if Config::Get('lang.current') == 'ru'}
-        var TINYMCE_LANG = 'ru';
-        {else}
-        var TINYMCE_LANG = 'en';
-        {/if}
 
-        var aRouter = new Array();
+        var TINYMCE_LANG = {if Config::Get('lang.current') == 'ru'}'ru'{else}'en'{/if};
+
+        var aRouter = [];
         {foreach from=$aRouter key=sPage item=sPath}
         aRouter['{$sPage}'] = '{$sPath}';
         {/foreach}
@@ -135,6 +132,7 @@
 {else}
     {include file='modals/modal.auth.tpl'}
 {/if}
+{include file='modals/modal.empty.tpl'}
 
 {include file='header_top.tpl'}
 {if Config::Get('view.header.banner')}

@@ -30,6 +30,7 @@ $config['head']['default']['css'] = array(
     '___path.frontend.dir___/libs/vendor/prettify/prettify.css',
     '___path.frontend.url___/libs/vendor/nprogress/nprogress.css',
     '___path.frontend.url___/libs/vendor/syslabel/syslabel.css',
+    '___path.frontend.url___/libs/vendor/prettyphoto/css/prettyphoto.css',
     '___path.skin.url___/assets/css/smoothness/jquery-ui.css',
     '___path.skin.url___/assets/css/responsive.css',
 

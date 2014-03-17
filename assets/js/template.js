@@ -49,6 +49,11 @@ jQuery(document).ready(function ($) {
         return false;
     });
 
+    $('.js-modal-blog_delete').click(function () {
+        $('#modal-blog_delete').modal();
+        return false;
+    });
+
     // Datepicker
     /**
      * TODO: навесить языки на datepicker
@@ -234,17 +239,18 @@ jQuery(document).ready(function ($) {
 
     // Help-tags link
     $('.js-tags-help-link').click(function () {
-        var target = ls.registry.get('tags-help-target-id');
+        var target = ls.registry.get('tags-help-target-id'),
+            text='';
         if (!target || !$('#' + target).length) {
             return false;
         }
         target = $('#' + target);
         if ($(this).data('insert')) {
-            var s = $(this).data('insert');
+            text = $(this).data('insert');
         } else {
-            var s = $(this).text();
+            text = $(this).text();
         }
-        $.markItUp({target: target, replaceWith: s});
+        $.markItUp({target: target, replaceWith: text});
         return false;
     });
 
@@ -265,12 +271,12 @@ jQuery(document).ready(function ($) {
 
 
     if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
-        var msViewportStyle = document.createElement("style")
+        var msViewportStyle = document.createElement("style");
         msViewportStyle.appendChild(
             document.createTextNode(
                 "@-ms-viewport{width:auto!important}"
             )
-        )
+        );
         document.getElementsByTagName("head")[0].appendChild(msViewportStyle)
     }
 

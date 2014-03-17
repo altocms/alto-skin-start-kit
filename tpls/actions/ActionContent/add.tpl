@@ -1,7 +1,7 @@
 {extends file="_index.tpl"}
 
 {block name="layout_vars"}
-    {if $sEvent=='add'}
+    {if $sMode=='add'}
         {$menu_content='create'}
     {/if}
 {/block}
@@ -11,7 +11,7 @@
     {include file='modals/modal.upload_photoset.tpl'}
     {include file='editor.tpl'}
 
-    {if $sEvent!='add'}
+    {if $sMode!='add'}
         <div class="page-header">
             <h1>{$aLang.topic_topic_edit}</h1>
         </div>
@@ -55,7 +55,7 @@
             </p>
         </div>
 
-        {if $aParams[0] != 'add' AND E::IsAdmin()}
+        {if $sMode != 'add' AND E::IsAdmin()}
         <div class="form-group">
                 <label for="topic_url">{$aLang.topic_create_url}:</label>
                 <span class="b-topic-url-demo">{$aEditTopicUrl.before}</span><span
@@ -65,7 +65,7 @@
                            class="input-text input-width-300" style="display: none;"/>
                 {/if}
                 <span class="b-topic_url_demo">{$aEditTopicUrl.after}</span>
-                {if $aParams[0] != 'add' AND E::IsAdmin()}
+                {if $sMode != 'add' AND E::IsAdmin()}
                     <button class="button js-tip-help" title="{$aLang.topic_create_url_edit}"
                             onclick="ls.topic.editUrl(this); return false;"><i class="icon-edit"></i></button>
                 {/if}
@@ -82,19 +82,15 @@
                       class="js-editor-wysiwyg js-editor-markitup form-control">{$_aRequest.topic_text}</textarea>
 
             {if !Config::Get('view.wysiwyg')}
-                {include file='tags_help.tpl' sTagsTargetId="topic_text"}
+                {include file='fields/field.tags_help.tpl' sTagsTargetId="topic_text"}
             {/if}
         </div>
 
-        <div class="form-group">
-            <label for="topic_tags">{$aLang.topic_create_tags}</label>
-            <input type="text" id="topic_tags" name="topic_tags" value="{$_aRequest.topic_tags}"
-                   class="form-control autocomplete-tags-sep"/>
+        {if $oContentType->isAllow('photoset')}
+            {include file="fields/field.photoset.edit.tpl"}
+        {/if}
 
-            <p class="help-block">
-                <small>{$aLang.topic_create_tags_notice}</small>
-            </p>
-        </div>
+        {include file="fields/field.tags.edit.tpl"}
 
         <div class="checkbox">
             <label>

@@ -1,6 +1,8 @@
 {$oBlog=$oTopic->getBlog()}
 {$oUser=$oTopic->getUser()}
 {$oVote=$oTopic->getVote()}
+{$oContentType=$oTopic->getContentType()}
+
 <article class="topic topic-type_{$oTopic->getType()} js-topic">
     {block name="topic_header"}
         <header class="topic-header">
@@ -26,12 +28,12 @@
 
                 {if E::IsAdmin() OR E::UserId()==$oTopic->getUserId() OR E::UserId()==$oBlog->getOwnerId() OR $oBlog->getUserIsAdministrator() OR $oBlog->getUserIsModerator()}
                     <ul class="list-unstyled list-inline small actions">
-                        <li><a href="{Config::Get('path.root.url')}/{$oTopic->getType()}/edit/{$oTopic->getId()}/"
+                        <li><a href="{router page='content'}edit/{$oTopic->getId()}/"
                                title="{$aLang.topic_edit}" class="actions-edit">{$aLang.topic_edit}</a></li>
 
                         {if E::IsAdmin() OR $oBlog->getUserIsAdministrator() OR $oBlog->getOwnerId()==E::UserId()}
                             <li>
-                                <a href="{router page='topic'}delete/{$oTopic->getId()}/?security_key={$ALTO_SECURITY_KEY}"
+                                <a href="{router page='content'}delete/{$oTopic->getId()}/?security_key={$ALTO_SECURITY_KEY}"
                                    title="{$aLang.topic_delete}"
                                    onclick="return confirm('{$aLang.topic_delete_confirm}');"
                                    class="actions-delete">{$aLang.topic_delete}</a></li>
@@ -52,42 +54,17 @@
         </div>
     {/block}
 
+    {if $oContentType->isAllow('photoset')}
+        {include file="fields/field.photoset.show.tpl"}
+    {/if}
+
     {block name="topic_footer"}
         {$oBlog=$oTopic->getBlog()}
         {$oUser=$oTopic->getUser()}
         {$oVote=$oTopic->getVote()}
         {$oFavourite=$oTopic->getFavourite()}
         <footer class="topic-footer">
-            <ul class="small text-muted list-unstyled list-inline topic-tags js-favourite-insert-after-form js-favourite-tags-topic-{$oTopic->getId()}">
-                <li><span class="glyphicon glyphicon-tags"></span></li>
-
-                {strip}
-                    {if $oTopic->getTagsArray()}
-                        {foreach $oTopic->getTagsArray() as $sTag}
-                            <li>{if !$sTag@first}, {/if}<a rel="tag"
-                                                           href="{router page='tag'}{$sTag|escape:'url'}/">{$sTag|escape:'html'}</a>
-                            </li>
-                        {/foreach}
-                    {else}
-                        <li>{$aLang.topic_tags_empty}</li>
-                    {/if}
-
-                    {if E::IsUser()}
-                        {if $oFavourite}
-                            {foreach $oFavourite->getTagsArray() as $sTag}
-                                <li class="topic-tags-user js-favourite-tag-user">, <a rel="tag"
-                                                                                       href="{E::User()->getProfileUrl()}favourites/topics/tag/{$sTag|escape:'url'}/">{$sTag|escape:'html'}</a>
-                                </li>
-                            {/foreach}
-                        {/if}
-                        <li class="topic-tags-edit js-favourite-tag-edit"
-                            {if !$oFavourite}style="display:none;"{/if}>
-                            <a href="#" onclick="return ls.favourite.showEditTags({$oTopic->getId()},'topic',this);"
-                               class="link-dotted">{$aLang.favourite_form_tags_button_show}</a>
-                        </li>
-                    {/if}
-                {/strip}
-            </ul>
+            {include file="fields/field.tags.show.tpl"}
 
             <div class="topic-share" id="topic_share_{$oTopic->getId()}">
                 {hookb run="topic_share" topic=$oTopic bTopicList=false}
@@ -112,7 +89,7 @@
                 </li>
                 <li class="topic-info-share"><a href="#" class="glyphicon glyphicon-share-alt"
                                                 title="{$aLang.topic_share}"
-                                                onclick="jQuery('#topic_share_{$oTopic->getId()}').slideToggle(); return false;"></a>
+                                                onclick="jQuery('#topic_share_' + '{$oTopic->getId()}').slideToggle(); return false;"></a>
                 </li>
 
                 <li id="vote_area_topic_{$oTopic->getId()}"
