@@ -11,7 +11,7 @@
     <form action="" method="POST" id="form-blogs-search" onsubmit="return false;" class="search-item">
         <input type="text" placeholder="{$aLang.blogs_search_title_hint}" autocomplete="off" name="blog_title"
                class="form-control" value=""
-               onkeyup="ls.timer.run(ls.blog.searchBlogs,'blogs_search',['form-blogs-search'],1000);">
+               onkeyup="ls.timer.run('blog-search', ls.blog.searchBlogs, ['#form-blogs-search'], 1.5);">
     </form>
     <div id="blogs-list-search" style="display:none;"></div>
     <div id="blogs-list-original">

@@ -19,11 +19,12 @@
 </script>
 
 <div class="topic-photoset">
-    <h2>{$oTopic->getPhotosetCount()} {$oTopic->getPhotosetCount()|declension:$aLang.topic_photoset_count_images}</h2>
+    {if count($aPhotos)<$oTopic->getPhotosetCount()}
+    <h4>{$oTopic->getPhotosetCount()} {$oTopic->getPhotosetCount()|declension:$aLang.topic_photoset_count_images}</h4>
+    {/if}
     <a name="photoset"></a>
 
     <ul class="topic-photoset-list list-unstyled list-inline clearfix">
-        {$aPhotos=$oTopic->getPhotosetPhotos(0, Config::Get('module.topic.photoset.per_page'))}
         {if count($aPhotos)}
             {foreach $aPhotos as $oPhoto}
                 <li class="topic-photoset-item">

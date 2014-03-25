@@ -1,4 +1,4 @@
-<div class="modal fade in" id="modal-upload_img">
+<div class="modal fade in" id="modal-upload_photoset">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -10,7 +10,7 @@
             <div class="modal-body">
                 <form id="photoset-upload-form" method="POST" enctype="multipart/form-data" onsubmit="return false;">
 
-                    <div id="topic-photo-upload-input" class="topic-photo-upload-input modal-content">
+                    <div id="topic-photo-upload-input" class="topic-photo-upload-input">
                         <label for="photoset-upload-file">{$aLang.topic_photoset_choose_image}:</label>
                         <input type="file" id="photoset-upload-file" name="Filedata"/><br><br>
 

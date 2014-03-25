@@ -17,6 +17,10 @@ a:focus { text-decoration: none; }
 .pagination > .disabled > a:hover,
 .pagination > .disabled > a:focus { cursor: default; }
 
+.panel-title {
+    font-size: 14px;
+}
+
 /*
 .progress { height: 10px; margin-bottom: 25px; margin-top: 7px; }
 */
@@ -242,9 +246,9 @@ a.user-friends:hover { color: #ff4136; text-decoration: none; }
 
 /* ICONS */
 .form-profile .icon-remove,
-.poll-create .icon-remove { color: #adadad; }
 .form-profile .icon-remove:hover,
-.poll-create .icon-remove:hover { color: #777; }
+.topic-poll-add .icon-remove { color: #adadad; }
+.topic-poll-add .icon-remove:hover { color: #777; }
 
 
 /* TABLE BLOGS */
@@ -287,9 +291,6 @@ a.user-friends:hover { color: #ff4136; text-decoration: none; }
 
 /* Share */
 .topic .topic-share { background-color: #f9f9f9; border: 1px solid #e9e9e9; }
-
-/* Poll */
-.poll-create { background-color: rgba(0, 0, 0, 0.03); }
 
 /* Topic Photo */
 .topic.topic-type-photoset .topic-photo-preview .topic-photo-count { color: #3fb618; background: rgba(0,0,0,.6); }
@@ -353,7 +354,7 @@ a.user-friends:hover { color: #ff4136; text-decoration: none; }
 .comment .comment-actions li a.comment-repair { color: #16b76f; }
 
 /* Reply form */
-.reply-header a { color: #ff4136; }
+.reply-header a { color: #ff4136; font-weight: bold; }
 .reply { background-color: #f4f3ec; margin-top: 25px; margin-bottom: 25px; }
 
 /* List of comments */

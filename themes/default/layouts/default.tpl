@@ -12,7 +12,8 @@
 <html class="no-js" lang="{Config::Get('i18n.lang')}" dir="{Config::Get('i18n.dir')}"> <!--<![endif]-->
 
 <head>
-    {hook run='html_head_begin'}
+{block name="layout_head"}
+{hook run='layout_head_begin'}
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -65,6 +66,7 @@
         var SESSION_ID          = '{$_sPhpSessionId}';
 
 
+        var tinymce = false;
         var TINYMCE_LANG = {if Config::Get('lang.current') == 'ru'}'ru'{else}'en'{/if};
 
         var aRouter = [];
@@ -72,7 +74,6 @@
         aRouter['{$sPage}'] = '{$sPath}';
         {/foreach}
 
-        var tinymce = false;
     </script>
 
     {$aHtmlHeadFiles.js}
@@ -121,10 +122,12 @@
         {$body_classes=$body_classes|cat:' ls-user-role-not-admin'}
     {/if}
 
-    {hook run='html_head_end'}
+{hook run='layout_head_end'}
+{/block}
 </head>
 <body class="{$body_classes}">
-{hook run='body_begin'}
+{block name="layout_body"}
+{hook run='layout_body_begin'}
 
 {if E::IsUser()}
     {include file='modals/modal.write.tpl'}
@@ -251,7 +254,7 @@
 
 {include file='toolbar.tpl'}
 
-{hook run='body_end'}
-
+{hook run='layout_body_end'}
+{/block}
 </body>
 </html>

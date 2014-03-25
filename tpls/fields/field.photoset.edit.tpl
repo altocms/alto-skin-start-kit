@@ -12,13 +12,13 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h4 class="panel-title">
-            <a data-toggle="collapse" data-target="#collapseOne" href="#">
+        <h5 class="panel-title">
+            <a data-toggle="collapse" href="##topic-field-photoset">
                 {$aLang.topic_toggle_images}
             </a>
-        </h4>
+        </h5>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in {if count($aPhotos)}in{/if}">
+    <div id="topic-field-photoset" class="panel-collapse collapse {if count($aPhotos)}in{/if}">
         <div class="panel-body topic-photo-upload">
             <div class="small text-muted topic-photo-upload-rules">
                 {$nMaxSixe=Config::Get('module.topic.photoset.photo_max_size')}
@@ -41,13 +41,13 @@
                             <br/>
                             <a href="#"
                                onclick="ls.photoset.deletePhoto('{$oPhoto->getId()}'); return false;"
-                               class="image-delete">{$aLang.topic_photoset_photo_delete}</a>
+                               class="action-image-delete">{$aLang.topic_photoset_photo_delete}</a>
                             <span id="photo_preview_state_{$oPhoto->getId()}" class="photo-preview-state">
                             {if $bIsMainPhoto}
                                 {$aLang.topic_photoset_is_preview}
                             {else}
                                 <a href="#" onclick="ls.photoset.setPreview('{$oPhoto->getId()}'); return false;"
-                                   class="mark-as-preview">{$aLang.topic_photoset_mark_as_preview}</a>
+                                   class="action-image-setpreview">{$aLang.topic_photoset_mark_as_preview}</a>
                             {/if}
                             </span>
                         </li>
@@ -60,10 +60,10 @@
                     <br/>
                     <a href="#"
                        onclick="ls.photoset.deletePhoto('ID'); return false;"
-                       class="image-delete">{$aLang.topic_photoset_photo_delete}</a>
+                       class="action-image-delete">{$aLang.topic_photoset_photo_delete}</a>
                             <span id="photo_preview_state_ID" class="photo-preview-state">
                             <a href="#" onclick="ls.photoset.setPreview('ID'); return false;"
-                               class="mark-as-preview">{$aLang.topic_photoset_mark_as_preview}</a>
+                               class="action-image-setpreview">{$aLang.topic_photoset_mark_as_preview}</a>
                             </span>
                 </li>
                 <li class="photoset-upload-progress js-photoset-upload-progress" style="display: none;">

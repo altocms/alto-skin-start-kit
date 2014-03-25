@@ -1,6 +1,7 @@
 {$oBlog=$oTopic->getBlog()}
 {$oUser=$oTopic->getUser()}
 {$oVote=$oTopic->getVote()}
+{$oFavourite=$oTopic->getFavourite()}
 {$oContentType=$oTopic->getContentType()}
 
 <article class="topic topic-type_{$oTopic->getType()} js-topic">
@@ -54,15 +55,19 @@
         </div>
     {/block}
 
-    {if $oContentType->isAllow('photoset')}
+    {if $oContentType->isAllow('link') AND $oTopic->getLinkUrl()}
+        {include file="fields/field.link.show.tpl"}
+    {/if}
+
+    {if $oContentType->isAllow('photoset') AND $iPhotosCount}
         {include file="fields/field.photoset.show.tpl"}
     {/if}
 
+    {if $oContentType->isAllow('poll') AND $oTopic->getQuestionAnswers()}
+        {include file="fields/field.poll.show.tpl"}
+    {/if}
+
     {block name="topic_footer"}
-        {$oBlog=$oTopic->getBlog()}
-        {$oUser=$oTopic->getUser()}
-        {$oVote=$oTopic->getVote()}
-        {$oFavourite=$oTopic->getFavourite()}
         <footer class="topic-footer">
             {include file="fields/field.tags.show.tpl"}
 

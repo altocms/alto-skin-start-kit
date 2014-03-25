@@ -1,88 +1,91 @@
 {wgroup_add group='toolbar' name='toolbar_comment.tpl'
-	aPagingCmt=$aPagingCmt
-	iTargetId=$iTargetId
-	sTargetType=$sTargetType
-	iMaxIdComment=$iMaxIdComment
+    aPagingCmt=$aPagingCmt
+    iTargetId=$iTargetId
+    sTargetType=$sTargetType
+    iMaxIdComment=$iMaxIdComment
 }
 
 {hook run='comment_tree_begin' iTargetId=$iTargetId sTargetType=$sTargetType}
 
 <div class="comments" id="comments">
-	<header class="comments-header">
-		<h3><span id="count-comments">{$iCountComment}</span> {$iCountComment|declension:$aLang.comment_declension:'russian'}</h3>
+    <header class="comments-header">
+        <span id="count-comments">{$iCountComment}</span> {$iCountComment|declension:$aLang.comment_declension:'russian'}
 
-		{if $bAllowSubscribe AND E::IsUser()}
-			<div class="hidden-xs text-muted subscribe">
-				<div class="checkbox">
-					<label>
-						<input {if $oSubscribeComment AND $oSubscribeComment->getStatus()}checked="checked"{/if} type="checkbox" id="comment_subscribe" class="input-checkbox" onchange="ls.subscribe.toggle('{$sTargetType}_new_comment','{$iTargetId}','',this.checked);">
-						{$aLang.comment_subscribe}
-					</label>
-				</div>
-			</div>
-		{/if}
+        {if $bAllowSubscribe AND E::IsUser()}
+            <div class="hidden-xs text-muted subscribe">
+                {$aLang.comment_whatch}
+                <label class="checkbox">
+                    <input {if $oSubscribeComment AND $oSubscribeComment->getStatus()}checked="checked"{/if}
+                           type="checkbox" id="comment_subscribe" class="input-checkbox"
+                           onchange="ls.subscribe.toggle('{$sTargetType}_new_comment','{$iTargetId}','',this.checked);">
+                    {$aLang.comment_subscribe}
+                </label>
+            </div>
+        {/if}
 
-		<a name="comments"></a>
-	</header>
+        <a name="comments"></a>
+    </header>
 
-	{$nesting="-1"}
-	{foreach $aComments as $oComment}
-		{$cmtlevel=$oComment->getLevel()}
+    {$nesting="-1"}
+    {foreach $aComments as $oComment}
+    {$cmtlevel=$oComment->getLevel()}
 
-		{if $cmtlevel>Config::Get('module.comment.max_tree')}
-			{$cmtlevel=Config::Get('module.comment.max_tree')}
-		{/if}
+    {if $cmtlevel>Config::Get('module.comment.max_tree')}
+        {$cmtlevel=Config::Get('module.comment.max_tree')}
+    {/if}
 
-		{if $nesting < $cmtlevel} 
-		{elseif $nesting > $cmtlevel}
-			{section name=closelist1  loop=$nesting-$cmtlevel+1}</div>{/section}
-		{elseif !$oComment@first}
-			</div>
-		{/if}
+    {if $nesting < $cmtlevel}
+    {elseif $nesting > $cmtlevel}
+    {section name=closelist1  loop=$nesting-$cmtlevel+1}</div>{/section}
+    {elseif !$oComment@first}
+    </div>
+    {/if}
 
-		<div class="comment-wrapper" id="comment_wrapper_id_{$oComment->getId()}">
+    <div class="comment-wrapper" id="comment_wrapper_id_{$oComment->getId()}">
 
-		{include file='comment.tpl'} 
-		{$nesting=$cmtlevel}
-		{if $oComment@last}
-			{section name=closelist2 loop=$nesting+1}</div>{/section}    
-		{/if}
-	{/foreach}
+    {include file='comment.tpl'}
 
-	{include file='comment_paging.tpl' aPagingCmt=$aPagingCmt}
+    {$nesting=$cmtlevel}
+    {if $oComment@last}
+        {section name=closelist2 loop=$nesting+1}</div>{/section}
+    {/if}
+    {/foreach}
 
-	{hook run='comment_tree_end' iTargetId=$iTargetId sTargetType=$sTargetType}
+{include file='comment_paging.tpl' aPagingCmt=$aPagingCmt}
 
-	{if $bAllowNewComment}
-		{$sNoticeNotAllow}
-	{else}
-		{if E::IsUser()}
-			{include file='editor.tpl' sImgToLoad='form_comment_text' sSettingsTinymce='ls.settings.getTinymceComment()' sSettingsMarkitup='ls.settings.getMarkitupComment()'}
+{hook run='comment_tree_end' iTargetId=$iTargetId sTargetType=$sTargetType}
 
-			<h3 class="reply-header" id="comment_id_0">
-				<a href="#" class="link-dotted" onclick="ls.comments.toggleCommentForm(0); return false;">{$sNoticeCommentAdd}</a>
-			</h3>
+{if $bAllowNewComment}
+    {$sNoticeNotAllow}
+{else}
+    {if E::IsUser()}
+        {include file='editor.tpl' sImgToLoad='form_comment_text' sSettingsTinymce='ls.settings.getTinymceComment()' sSettingsMarkitup='ls.settings.getMarkitupComment()'}
+        <div class="reply-header" id="comment_id_0">
+            <a href="#" class="link-dotted"
+               onclick="ls.comments.toggleCommentForm(0); return false;">{$sNoticeCommentAdd}</a>
+        </div>
+        <div id="reply" class="reply">
+            <form method="post" id="form_comment" onsubmit="return false;" enctype="multipart/form-data">
+                {hook run='form_add_comment_begin'}
 
-			<div id="reply" class="reply">
-				<form method="post" id="form_comment" onsubmit="return false;" enctype="multipart/form-data">
-					{hook run='form_add_comment_begin'}
+                <textarea name="comment_text" id="form_comment_text"
+                          class="mce-editor markitup-editor form-control"></textarea>
 
-					<textarea name="comment_text" id="form_comment_text" class="mce-editor markitup-editor form-control"></textarea>
+                {hook run='form_add_comment_end'}
 
-					{hook run='form_add_comment_end'}
+                <button type="button" onclick="ls.comments.preview();"
+                        class="btn btn-default">{$aLang.comment_preview}</button>
+                <button type="submit" name="submit_comment"
+                        id="comment-button-submit"
+                        onclick="ls.comments.add('form_comment',{$iTargetId},'{$sTargetType}'); return false;"
+                        class="btn btn-success">{$aLang.comment_add}</button>
 
-					<button type="submit" name="submit_comment" 
-							id="comment-button-submit" 
-							onclick="ls.comments.add('form_comment',{$iTargetId},'{$sTargetType}'); return false;" 
-							class="btn btn-success">{$aLang.comment_add}</button>
-					<button type="button" onclick="ls.comments.preview();" class="btn btn-default">{$aLang.comment_preview}</button>
-
-					<input type="hidden" name="reply" value="0" id="form_comment_reply" />
-					<input type="hidden" name="cmt_target_id" value="{$iTargetId}" />
-				</form>
-			</div>
-		{else}
-			{$aLang.comment_unregistered}
-		{/if}
-	{/if}
+                <input type="hidden" name="cmt_target_id" value="{$iTargetId}"/>
+                <input type="hidden" name="reply" value="0" id="form_comment_reply"/>
+            </form>
+        </div>
+    {else}
+        {$aLang.comment_unregistered}
+    {/if}
+{/if}
 </div>
