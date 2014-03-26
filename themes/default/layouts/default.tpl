@@ -41,7 +41,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,cyrillic'
           rel='stylesheet' type='text/css'>
 
-    <link href="{Config::Get('path.static.skin')}/images/favicon.ico?v1" rel="shortcut icon"/>
+    <link href="{Config::Get('path.static.skin')}assets/images/favicon.ico?v1" rel="shortcut icon"/>
     <link rel="search" type="application/opensearchdescription+xml" href="{router page='search'}opensearch/"
           title="{Config::Get('view.name')}"/>
 
