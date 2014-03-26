@@ -126,19 +126,17 @@
 
     {hook run='form_add_topic_end'}
 
-    <button type="submit" name="submit_topic_publish" id="submit_topic_publish" class="btn btn-success pull-right">
+    <button type="submit" name="submit_topic_publish" class="btn btn-success pull-right">
         {if $oTopic AND $oTopic->getPublish()}
             {$aLang.topic_create_submit_publish_update}
         {else}
             {$aLang.topic_create_submit_publish}
         {/if}
     </button>
-    <button type="submit" name="submit_preview"
-            onclick="ls.topic.preview('form-topic-add','text_preview'); return false;"
-            class="btn btn-default">
+    <button type="submit" name="submit_preview" class="btn btn-default js-topic-preview-text-button">
         {$aLang.topic_create_submit_preview}
     </button>
-    <button type="submit" name="submit_topic_draft" id="submit_topic_draft" class="btn btn-default">
+    <button type="submit" name="submit_topic_draft" class="btn btn-default">
         {if $oTopic AND $oTopic->getPublish()}
             {$aLang.topic_create_submit_publish_draft}
         {else}
@@ -146,7 +144,7 @@
         {/if}
     </button>
 </form>
-<div class="topic-preview" style="display: none;" id="text_preview"></div>
+<div class="topic-preview js-topic-preview-place" style="display: none;"></div>
 
 {hook run='add_topic_end'}
 

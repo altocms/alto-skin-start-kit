@@ -264,7 +264,7 @@ a.user-friends:hover { color: #ff4136; text-decoration: none; }
 
 /* TOPIC */
 .topic { background-color: #fff; margin-bottom: 30px; padding: 22px 25px 10px; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02); }
-.topic-preview .topic { margin-bottom: 30px; padding: 0; }
+/* .topic-preview .topic { margin-bottom: 30px; padding: 0; } */
 
 /* Header */
 .topic .topic-header .topic-title a { color: #252525; }
