@@ -131,7 +131,7 @@
         {hook run='form_add_topic_end'}
 
         <button type="submit" name="submit_topic_publish" id="submit_topic_publish" class="btn btn-success pull-right">
-            {if $oTopic->getPublish()}
+            {if $oTopic AND $oTopic->getPublish()}
                 {$aLang.topic_create_submit_publish_update}
             {else}
                 {$aLang.topic_create_submit_publish}
@@ -142,7 +142,7 @@
             {$aLang.topic_create_submit_preview}
         </button>
         <button type="submit" name="submit_topic_draft" id="submit_topic_draft" class="btn btn-default">
-            {if $oTopic->getPublish()}
+            {if $oTopic AND $oTopic->getPublish()}
                 {$aLang.topic_create_submit_publish_draft}
             {else}
                 {$aLang.topic_create_submit_draft}
