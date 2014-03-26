@@ -67,6 +67,12 @@
         {include file="fields/field.poll.show.tpl"}
     {/if}
 
+    {if $oContentType}
+        {foreach from=$oContentType->getFields() item=oField}
+            {include file="fields/field.custom_`$oField->getFieldType()`.show.tpl" oField=$oField}
+        {/foreach}
+    {/if}
+
     {block name="topic_footer"}
         <footer class="topic-footer">
             {include file="fields/field.tags.show.tpl"}

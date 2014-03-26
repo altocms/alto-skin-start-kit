@@ -6,7 +6,7 @@
 
 {block name="layout_content"}
 
-{include file="topics/topic.content.tpl"}
+{include file="topics/topic.show.tpl"}
 
 {include 
 	file="comment_tree.tpl"
