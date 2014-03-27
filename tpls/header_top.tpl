@@ -14,23 +14,23 @@
                 </button>
 
                 <hgroup class="site-info">
-                    <h1 class="site-name"><a class="navbar-brand" href="{Config::Get('path.root.url')}">{Config::Get('view.name')}</a></h1>
+                    {strip}
+                        <h1 class="site-name"><a class="navbar-brand" href="{Config::Get('path.root.url')}">
+                        {if Config::Get('view.header.logo')}
+                            <img src="{Config::Get('view.header.logo')}" alt="{Config::Get('view.name')}" class="navbar-brand-logo">
+                        {/if}
+                        {if Config::Get('view.header.name')}
+                            {Config::Get('view.header.name')}
+                        {/if}
+                        </a></h1>
+                    {/strip}
                 </hgroup>
             </div>
 
             {hook run='userbar_nav'}
 
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                    <li {if $sMenuHeadItemSelect=='blog'}class="active"{/if}><a href="{Config::Get('path.root.url')}">{$aLang.topic_title}</a></li>
-                    <li {if $sMenuHeadItemSelect=='blogs'}class="active"{/if}><a href="{router page='blogs'}">{$aLang.blogs}</a></li>
-                    <li {if $sMenuHeadItemSelect=='people'}class="active"{/if}><a href="{router page='people'}">{$aLang.people}</a></li>
-                    <li {if $sMenuHeadItemSelect=='stream'}class="active"{/if}><a href="{router page='stream'}">{$aLang.stream_menu}</a></li>
-
-                    {hook run='main_menu_item'}
-                </ul>
-
-                {hook run='main_menu'}
+                {include file="menus/menu.main.tpl"}
 
                 <ul class="nav navbar-nav navbar-right">
                     {if E::IsUser()}

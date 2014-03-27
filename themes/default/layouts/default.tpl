@@ -138,9 +138,11 @@
 {include file='modals/modal.empty.tpl'}
 
 {include file='header_top.tpl'}
+
 {if Config::Get('view.header.banner')}
-    {include file='header_banner.tpl'}
+    {wgroup group="topbanner"}
 {/if}
+
 {include file='header_nav.tpl'}
 
 <section id="container" class="{hook run='container_class'}">

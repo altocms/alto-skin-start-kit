@@ -7,9 +7,39 @@ $config['smarty']['dir']['templates'] = array(
 
 /* Theme */
 $config['view']['theme'] = 'default';
+
+/* Top bar fixed or static */
 //$config['view']['header']['top'] = 'static'; // static or fixed
 $config['view']['header']['top'] = 'fixed'; // static or fixed
+
+/* Banner under top bar - turn on/off */
 $config['view']['header']['banner'] = true;
+
+$config['view']['header']['logo'] = Config::Get('path.skin.url') . 'assets/images/logo-24x24.png';
+$config['view']['header']['name'] = Config::Get('view.name');
+
+/* Main menu in top bar */
+$config['view']['header']['menu'] = array(
+    'options' => array(),
+    'items' => array(
+            'blog' => array(
+                'lang' => 'topic_title',
+                'url' => Config::Get('path.root.url')
+            ),
+            'blogs' => array(
+                'lang' => 'blogs',
+                'url' => Router::GetPath('blogs'),
+            ),
+            'people' => array(
+                'lang' => 'people',
+                'url' => Router::GetPath('people'),
+            ),
+            'stream' => array(
+                'lang' => 'stream_menu',
+                'url' => Router::GetPath('stream'),
+            ),
+    ),
+);
 
 $config['head']['default']['js'] = Config::Get('head.default.js');
 $config['head']['default']['js'][] = '___path.skin.url___/assets/js/template.js';

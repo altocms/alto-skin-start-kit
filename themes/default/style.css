@@ -55,9 +55,18 @@ a.read-more:hover { color: #ff4136; }
 .table.table-talk a.user { color: #252525; font-weight: bold; }
 .table.table-talk a.user.inactive { color: #adadad; }
 
+/* TOP BANNER */
+#topbanner { height: 250px; }
+#topbanner .jumbotron, #topbanner .carousel-inner .item { margin: 0; height: 250px; }
+#topbanner .carousel-inner .item-wrap { height: 250px; width: 100%; }
+#topbanner h1 { text-shadow: 0 0 10px rgba(64, 64, 64, .5) }
+#topbanner a, #topbanner a:hover { color: #fff; }
+#topbanner h1 a:hover { text-decoration: none; }
 
 /* NAVIGATION */
 #nav { background-color: #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02); }
+
+.navbar-brand-logo { margin-right: 14px; }
 
 .navbar .nav > li .new-messages { color: #ffdc00; }
 .navbar .nav > li .new-messages:hover { color: #ff851b; }
