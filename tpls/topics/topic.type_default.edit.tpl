@@ -56,12 +56,12 @@
             {/if}
             <span class="b-topic_url_demo">{$aEditTopicUrl.after}</span>
             {if $sMode != 'add' AND E::IsAdmin()}
-                <button class="button js-tip-help" title="{$aLang.topic_create_url_edit}"
-                        onclick="ls.topic.editUrl(this); return false;"><i class="icon-edit"></i></button>
+                <button class="btn btn-default js-tip-help" title="{$aLang.topic_create_url_edit}"
+                        onclick="ls.topic.editUrl(this); return false;"><i class="glyphicon glyphicon-edit"></i></button>
             {/if}
-            <button class="button js-tip-help" title="{$aLang.topic_create_url_short}"
+            <button class="btn btn-default js-tip-help" title="{$aLang.topic_create_url_short}"
                     onclick="ls.topic.shortUrl('{$_aRequest.topic_url_short}'); return false;"><i
-                        class="icon-share-alt"></i></button>
+                        class="glyphicon glyphicon-share"></i></button>
             <small class="note"></small>
         </div>
     {/if}
@@ -80,12 +80,12 @@
         {include file="fields/field.link.edit.tpl"}
     {/if}
 
-    {if $oContentType->isAllow('photoset')}
-        {include file="fields/field.photoset.edit.tpl"}
-    {/if}
-
     {if $oContentType->isAllow('poll')}
         {include file="fields/field.poll.edit.tpl"}
+    {/if}
+
+    {if $oContentType->isAllow('photoset')}
+        {include file="fields/field.photoset.edit.tpl"}
     {/if}
 
     {if $oContentType}

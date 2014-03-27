@@ -19,6 +19,7 @@
 </script>
 
 <div class="topic-photoset">
+    {$aPhotos=$oTopic->getPhotosetPhotos(0, Config::Get('module.topic.photoset.per_page'))}
     {if count($aPhotos)<$oTopic->getPhotosetCount()}
     <h4>{$oTopic->getPhotosetCount()} {$oTopic->getPhotosetCount()|declension:$aLang.topic_photoset_count_images}</h4>
     {/if}

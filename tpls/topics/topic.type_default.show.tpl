@@ -59,12 +59,12 @@
         {include file="fields/field.link.show.tpl"}
     {/if}
 
-    {if $oContentType->isAllow('photoset') AND $iPhotosCount}
-        {include file="fields/field.photoset.show.tpl"}
-    {/if}
-
     {if $oContentType->isAllow('poll') AND $oTopic->getQuestionAnswers()}
         {include file="fields/field.poll.show.tpl"}
+    {/if}
+
+    {if $oContentType->isAllow('photoset') AND $oTopic->getPhotosetCount()}
+        {include file="fields/field.photoset.show.tpl"}
     {/if}
 
     {if $oContentType}
