@@ -10,8 +10,7 @@
         {include file='menus/menu.profile_favourite.tpl'}
     </div>
     {if E::UserId()==$oUserProfile->getId()}
-        {$aBlockParams.user=$oUserProfile}
-        {insert name="block" block=tagsFavouriteTopic params=$aBlock.params}
+        {widget name="TagsFavouriteTopic" user=$oUserProfile}
     {/if}
 
     {include file='topics/topic.list.tpl'}

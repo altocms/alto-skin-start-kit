@@ -7,7 +7,7 @@
         jQuery(document).ready(function ($) {
             ls.lang.load({lang_load name="geo_select_city,geo_select_region"});
             ls.geo.initSelect();
-            ls.userfield.iCountMax = '{Config::Get('module.user.userfield_max_identical')}';
+            //ls.userfield.iCountMax = '{Config::Get('module.user.userfield_max_identical')}';
         });
     </script>
     {hook run='settings_profile_begin'}
@@ -86,49 +86,27 @@
                     </div>
 
                     <div class="col-lg-4">
-                        <p id="profile_user_field_template" style="display:none;" class="js-user-field-item">
-                            <select name="profile_user_field_type[]" onchange="ls.userfield.changeFormField(this);"
-                                    class="form-control">
-                                {foreach $aUserFieldsContact as $oFieldAll}
-                                    <option value="{$oFieldAll->getId()}">{$oFieldAll->getTitle()|escape:'html'}</option>
-                                {/foreach}
-                            </select>
-                            <input type="text" name="profile_user_field_value[]" value="" class="form-control">
-                            <a class="glyphicon glyphicon-trash icon-remove" title="{$aLang.user_field_delete}" href="#"
-                               onclick="return ls.userfield.removeFormField(this);"></a>
-                        </p>
+                        <div class="pull-right settings-avatar-change">
+                            <img src="{E::User()->getAvatarUrl(100)}" id="profile-avatar-image" class="profile-avatar js-profile-avatar-image"/>
 
-                        <div class="pull-right avatar-change">
-                            <img src="{E::User()->getAvatarUrl(100)}" id="avatar-img"/>
-
-                            <div class="small">
-                                <a href="#" id="avatar-upload"
-                                   class="link-dotted">{if E::User()->getProfileAvatar()}{$aLang.settings_profile_avatar_change}{else}{$aLang.settings_profile_avatar_upload}{/if}</a><br/>
-                                <a href="#" id="avatar-remove" class="link-dotted"
-                                   onclick="return ls.user.removeAvatar();"
-                                   style="{if !E::User()->getProfileAvatar()}display:none;{/if}">{$aLang.settings_profile_avatar_delete}</a>
+                            <div class="profile-avatar-menu small">
+                                <button class="btn btn-default btn-xs" data-toggle="file" data-target="#profile-avatar-file">
+                                    {if $oUserCurrent->getProfileAvatar()}
+                                        {$aLang.settings_profile_avatar_change}
+                                    {else}
+                                        {$aLang.settings_profile_avatar_upload}
+                                    {/if}
+                                </button>
+                                <br/>
+                                <a href="#" class="link-dotted js-profile-avatar-remove" {if !$oUserCurrent->getProfileAvatar()}style="visibility: hidden;"{/if}>
+                                    {$aLang.settings_profile_avatar_delete}
+                                </a>
+                                <input type="file" name="avatar" id="profile-avatar-file" class="js-profile-avatar-file" data-target=".js-profile-avatar-image">
                             </div>
+                            {include_once file="modals/modal.crop_img.tpl"}
 
-                            <div class="modal fade in modal-upload-avatar" id="avatar-resize">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-
-                                        <header class="modal-header">
-                                            <h4 class="modal-title">{$aLang.uploadimg}</h4>
-                                        </header>
-
-                                        <div class="modal-body">
-                                            <p><img src="" alt="" id="avatar-resize-original-img"></p>
-                                            <button type="submit" class="btn btn-success"
-                                                    onclick="return ls.user.resizeAvatar();">{$aLang.settings_profile_avatar_resize_apply}</button>
-                                            <button type="submit" class="btn btn-default"
-                                                    onclick="return ls.user.cancelAvatar();">{$aLang.settings_profile_avatar_resize_cancel}</button>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
                         </div>
+
                     </div>
                 </div>
 

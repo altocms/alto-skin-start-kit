@@ -7,7 +7,7 @@
             deeplinking: false
         });
 
-        $('.topic-photoset-list').rowGrid({
+        $('.js-topic-photoset-list').rowGrid({
             itemSelector: '.topic-photoset-item',
             minMargin: 10,
             maxMargin: 15,
@@ -25,7 +25,7 @@
     {/if}
     <a name="photoset"></a>
 
-    <ul class="topic-photoset-list list-unstyled list-inline clearfix">
+    <ul class="topic-photoset-list list-unstyled list-inline clearfix js-topic-photoset-list">
         {if count($aPhotos)}
             {foreach $aPhotos as $oPhoto}
                 <li class="topic-photoset-item">

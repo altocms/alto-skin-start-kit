@@ -1,48 +1,31 @@
 {hook run='profile_sidebar_begin' oUserProfile=$oUserProfile}
 
-<section class="panel panel-default block block-type-profile">
+<section class="panel panel-default widget widget-type-profile">
     <div class="panel-body">
 
         <div class="profile-photo-wrapper">
-            <span class="label {if $oUserProfile->isOnline()}label-success{else}label-danger{/if} status">
-                {if $oUserProfile->isOnline()}{$aLang.user_status_online}{else}{$aLang.user_status_offline}{/if}
-            </span>
-            <img src="{$oUserProfile->getPhotoUrl()}" alt="photo" class="profile-photo" id="foto-img"/>
+                <span class="label {if $oUserProfile->isOnline()}label-success{else}label-danger{/if} status">
+                    {if $oUserProfile->isOnline()}{$aLang.user_status_online}{else}{$aLang.user_status_offline}{/if}
+                </span>
+            <img src="{$oUserProfile->getPhotoUrl(250)}" alt="photo" class="profile-photo js-profile-photo-image"/>
         </div>
-
         {if $sAction=='settings' AND E::UserId() == $oUserProfile->getId()}
-            <script type="text/javascript">
-                jQuery(function ($) {
-                    $('#foto-upload').file({ name: 'foto' }).choose(function (e, input) {
-                        ls.user.uploadFoto(null, input);
-                    });
-                });
-            </script>
-            <p class="small upload-photo">
-                <a href="#" id="foto-upload"
-                   class="link-dotted">{if E::User()->getProfilePhoto()}{$aLang.settings_profile_photo_change}{else}{$aLang.settings_profile_photo_upload}{/if}</a>&nbsp;&nbsp;&nbsp;
-                <a href="#" id="foto-remove" class="link-dotted" onclick="return ls.user.removeFoto();"
-                   style="{if !E::User()->getProfilePhoto()}display:none;{/if}">{$aLang.settings_profile_foto_delete}</a>
-            </p>
-            <div class="modal fade in modal-upload-photo" id="foto-resize">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                        <header class="modal-header">
-                            <h4 class="modal-title">{$aLang.uploadimg}</h4>
-                        </header>
-
-                        <div class="modal-body">
-                            <img src="" alt="" id="foto-resize-original-img"><br/>
-                            <button type="submit" class="btn btn-success"
-                                    onclick="return ls.user.resizeFoto();">{$aLang.settings_profile_avatar_resize_apply}</button>
-                            <button type="submit" class="btn btn-default"
-                                    onclick="return ls.user.cancelFoto();">{$aLang.settings_profile_avatar_resize_cancel}</button>
-                        </div>
-
-                    </div>
-                </div>
+            <div class="profile-photo-menu">
+                <button class="btn btn-default" data-toggle="file" data-target="#profile-photo-file">
+                    {if $oUserCurrent->getProfilePhoto()}
+                        {$aLang.settings_profile_photo_change}
+                    {else}
+                        {$aLang.settings_profile_photo_upload}
+                    {/if}
+                </button>
+                <br/>
+                <a href="#" class="link-dotted js-profile-photo-remove" {if !$oUserCurrent->getProfilePhoto()}style="visibility: hidden;"{/if}>
+                    {$aLang.settings_profile_photo_delete}
+                </a>
+                <input type="file" name="photo" id="profile-photo-file" class="js-profile-photo-file"
+                       data-target=".js-profile-photo-image">
             </div>
+            {include_once file="modals/modal.crop_img.tpl"}
         {/if}
 
     </div>
@@ -50,7 +33,7 @@
 
 {hook run='profile_sidebar_menu_before' oUserProfile=$oUserProfile}
 
-<section class="panel panel-default block block-type-profile-nav">
+<section class="panel panel-default widget widget-type-profile-nav">
     <div class="panel-body">
 
         <ul class="nav nav-pills nav-stacked">
@@ -91,10 +74,10 @@
             ls.lang.load({lang_load name="profile_user_unfollow,profile_user_follow"});
         });
     </script>
-    <section class="panel panel-default block block-type-profile-actions">
+    <section class="panel panel-default widget widget-type-profile-actions">
         <div class="panel-body">
 
-            <div class="block-content">
+            <div class="widget-content">
                 <ul class="list-unstyled profile-actions" id="profile_actions">
                     {include file='actions/ActionProfile/friend_item.tpl' oUserFriend=$oUserProfile->getUserFriend()}
                     <li>
@@ -114,7 +97,7 @@
 {/if}
 
 {if E::IsUser() AND E::UserId() != $oUserProfile->getId()}
-    <section class="panel panel-default block block-type-profile-note">
+    <section class="panel panel-default widget widget-type-profile-note">
         <div class="panel-body">
 
             {if $oUserNote}
