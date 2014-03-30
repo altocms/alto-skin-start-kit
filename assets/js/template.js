@@ -22,20 +22,6 @@ jQuery(document).ready(function ($) {
     }
 
     // Всплывающие окна
-    /*
-    $('#window_login_form').jqm();
-    $('#blog_delete_form').jqm({trigger: '#blog_delete_show'});
-    $('#add_friend_form').jqm({trigger: '#add_friend_show'});
-    $('#window_upload_img').jqm();
-    $('#userfield_form').jqm();
-    $('#favourite-form-tags').jqm();
-    $('#modal_write').jqm({trigger: '#modal_write_show'});
-    $('#foto-resize').jqm({modal: true});
-    $('#avatar-resize').jqm({modal: true});
-    $('#userfield_form').jqm({toTop: true});
-    $('#photoset-upload-form').jqm({trigger: '#photoset-start-upload'});
-    */
-
     $('.js-modal-auth-login').click(function () {
         $('#modal-auth').modal();
         var tab = $('#modal-auth .js-tab-login').tab('show');
@@ -54,7 +40,22 @@ jQuery(document).ready(function ($) {
         return false;
     });
 
-    // Datepicker
+    /* Special toggles */
+    $('[data-toggle=file][data-target]').each(function () {
+        var target = $($(this).data('target')).first();
+        if (target.length && target.is('input') && target.attr('type') == 'file') {
+            target.css({opacity: 0, position: 'absolute', width: 0});
+        }
+        $(this).click(function () {
+            var target = $($(this).data('target')).first();
+            if (target.length && target.is('input') && target.attr('type') == 'file') {
+                target.click();
+            }
+            return false;
+        });
+    });
+
+    /* Datepicker */
     /**
      * TODO: навесить языки на datepicker
      */

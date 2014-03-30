@@ -512,9 +512,9 @@ select, input[type="file"] { height: auto; }
     min-height: 20px;
 }
 /* Widget type - Profile */
-.widget.widget-type-profile .profile-photo-wrapper { position: relative; min-height: 50px; margin: 0 auto; max-width: 250px; }
-.widget.widget-type-profile .profile-photo { max-width: 100%; vertical-align: top; }
-.widget.widget-type-profile .status { position: absolute; top: 5px; left: 5px; }
+.widget.widget-type-profile .profile-photo-wrapper { position: relative; min-height: 50px; margin: 0 auto 10px; max-width: 250px; }
+.widget.widget-type-profile .profile-photo { max-width: 100%; vertical-align: top; border: 1px solid #EEE; }
+.widget.widget-type-profile .status { position: absolute; top: 5px; left: -15px; }
 .widget.widget-type-profile .upload-photo { padding: 7px 10px 10px; margin: 0 auto; max-width: 250px; }
 
 .widget.widget-type-profile-note .actions { margin-bottom: 0; }
