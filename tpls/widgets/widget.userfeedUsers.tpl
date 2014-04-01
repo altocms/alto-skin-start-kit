@@ -3,7 +3,7 @@
         <div class="panel-body">
 
             <header class="widget-header">
-                <h3>{$aLang.userfeed_block_users_title}</h3>
+                <h3 class="widget-title">{$aLang.userfeed_block_users_title}</h3>
             </header>
 
             <div class="widget-content">
@@ -54,7 +54,7 @@
             <div class="panel-body">
 
                 <header class="widget-header">
-                    <h3>{$aLang.userfeed_block_users_friends}</h3>
+                    <h3 class="widget-title">{$aLang.userfeed_block_users_friends}</h3>
                 </header>
 
                 <div class="widget-content">

@@ -7,6 +7,7 @@ $config['smarty']['dir']['templates'] = array(
 
 /* Theme */
 $config['view']['theme'] = 'default';
+$config['view']['theme'] = 'light';
 
 /* Top bar fixed or static */
 //$config['view']['header']['top'] = 'static'; // static or fixed
@@ -15,16 +16,16 @@ $config['view']['header']['top'] = 'fixed'; // static or fixed
 /* Banner under top bar - turn on/off */
 $config['view']['header']['banner'] = true;
 
-$config['view']['header']['logo'] = Config::Get('path.skin.url') . 'assets/images/logo-24x24.png';
-$config['view']['header']['name'] = Config::Get('view.name');
+$config['view']['header']['logo'] = Config::Get('path.skin.url') . 'themes/___view.theme___/img/favicon.png';
+$config['view']['header']['name'] = 'START<span>KIT</span>';
 
 /* Main menu in top bar */
 $config['view']['header']['menu'] = array(
     'options' => array(),
     'items' => array(
-            'blog' => array(
+            'index' => array(
                 'lang' => 'topic_title',
-                'url' => Config::Get('path.root.url')
+                'url' => Config::Get('path.root.url'),
             ),
             'blogs' => array(
                 'lang' => 'blogs',
@@ -63,6 +64,7 @@ $config['head']['default']['css'] = array(
     '___path.frontend.url___/libs/vendor/prettyphoto/css/prettyphoto.css',
     '___path.skin.url___/assets/css/smoothness/jquery-ui.css',
     '___path.skin.url___/assets/css/responsive.css',
+    '___path.skin.url___/assets/css/default.css',
 
     /* Theme */
     '___path.skin.url___/themes/___view.theme___/style.css',

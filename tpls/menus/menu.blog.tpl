@@ -1,4 +1,4 @@
-<ul class="nav nav-pills">
+<ul class="nav nav-pills context-menu">
     <li {if $sMenuSubItemSelect=='good'}class="active"{/if}><a
                 href="{Config::Get('path.root.url')}/">{$aLang.blog_menu_all_good}</a></li>
 

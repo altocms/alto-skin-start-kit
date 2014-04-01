@@ -37,13 +37,13 @@
                         {if $iUserCurrentCountTalkNew}
                             <li>
                                 <a href="{router page='talk'}" class="new-messages" title="{if $iUserCurrentCountTalkNew}{$aLang.user_privat_messages_new}{/if}">
-                                    {$iUserCurrentCountTalkNew} <span class="glyphicon glyphicon-envelope"></span>
+                                    <span class="glyphicon glyphicon-envelope"></span> +{$iUserCurrentCountTalkNew}
                                 </a>
                             </li>
                         {/if}
                         <li class="dropdown nav-userbar">
                             <a data-toggle="dropdown" data-target="#" href="{E::User()->getProfileUrl()}" class="dropdown-toggle username">
-                                <img src="{E::User()->getAvatarUrl(24)}" alt="{E::User()->getDisplayName()}" class="avatar"/>
+                                <img src="{E::User()->getAvatarUrl(32)}" alt="{E::User()->getDisplayName()}" class="avatar"/>
                                 {E::User()->getDisplayName()}
                                 <b class="caret"></b>
                             </a>

@@ -38,8 +38,7 @@
 
     {$aHtmlHeadFiles.css}
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,cyrillic'
-          rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
     <link href="{Config::Get('path.static.skin')}assets/images/favicon.ico?v1" rel="shortcut icon"/>
     <link rel="search" type="application/opensearchdescription+xml" href="{router page='search'}opensearch/"
@@ -181,7 +180,7 @@
 </section>
 <!-- /container -->
 
-<footer id="footer">
+<footer id="footer" class="footer">
     <div class="container">
         <div class="row">
 
@@ -236,18 +235,16 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="col-sm-6 col-md-6 col-lg-6 footer-bottom-copyright">
+                    <img src="{Config::Get('path.static.skin')}assets/images/logo-24x24.png"/>
                     {hook run='copyright'}
                 </div>
 
-                <div class="col-sm-6 col-md-6 col-lg-6 text-right social-icons">
-                    <a href="#"><span class="icon-facebook"></span></a>
-                    <a href="#"><span class="icon-gplus"></span></a>
-                    <a href="#"><span class="icon-twitter"></span></a>
-                    <a href="#"><span class="icon-vkontakte"></span></a>
-                    <a href="#"><span class="icon-youtube-play"></span></a>
-                    <a href="#"><span class="icon-yandex"></span></a>
-                    <a href="#"><span class="icon-odnoklassniki"></span></a>
+                <div class="col-sm-6 col-md-6 col-lg-6 text-right footer-bottom-copyright">
+                    Design by
+                    <a href="http://creatime.org" target="_blank">
+                        <img src="{Config::Get('path.static.skin')}assets/images/creatime.png" alt="дизайн студии Creatime.org">
+                    </a>
                 </div>
             </div>
         </div>

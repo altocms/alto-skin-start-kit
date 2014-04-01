@@ -7,7 +7,7 @@
 <article class="topic topic-type_{$oTopic->getType()} js-topic">
     {block name="topic_header"}
         <header class="topic-header">
-            <h1 class="topic-title">
+            <h1 class="topic-header-title">
                 {$oTopic->getTitle()|escape:'html'}
 
                 {if $oTopic->getPublish() == 0}
@@ -19,7 +19,7 @@
                 {/if}
             </h1>
 
-            <div class="topic-info">
+            <div class="topic-header-info">
                 <a href="{$oBlog->getUrlFull()}" class="topic-blog">{$oBlog->getTitle()|escape:'html'}</a>
 
                 <time datetime="{date_format date=$oTopic->getDateAdd() format='c'}"
@@ -28,16 +28,23 @@
                 </time>
 
                 {if E::IsAdmin() OR E::UserId()==$oTopic->getUserId() OR E::UserId()==$oBlog->getOwnerId() OR $oBlog->getUserIsAdministrator() OR $oBlog->getUserIsModerator()}
-                    <ul class="list-unstyled list-inline small actions">
-                        <li><a href="{router page='content'}edit/{$oTopic->getId()}/"
-                               title="{$aLang.topic_edit}" class="actions-edit">{$aLang.topic_edit}</a></li>
+                    <ul class="list-unstyled list-inline small pull-right actions">
+                        <li><span class="glyphicon glyphicon-cog actions-tool"></span></li>
+                        <li>
+                            <a href="{router page='content'}edit/{$oTopic->getId()}/" title="{$aLang.topic_edit}" class="actions-edit">
+                                {$aLang.topic_edit}
+                            </a>
+                        </li>
 
                         {if E::IsAdmin() OR $oBlog->getUserIsAdministrator() OR $oBlog->getOwnerId()==E::UserId()}
                             <li>
                                 <a href="{router page='content'}delete/{$oTopic->getId()}/?security_key={$ALTO_SECURITY_KEY}"
+                                   class="actions-delete"
                                    title="{$aLang.topic_delete}"
-                                   onclick="return confirm('{$aLang.topic_delete_confirm}');"
-                                   class="actions-delete">{$aLang.topic_delete}</a></li>
+                                   onclick="return confirm('{$aLang.topic_delete_confirm}');">
+                                    {$aLang.topic_delete}
+                                </a>
+                            </li>
                         {/if}
                     </ul>
                 {/if}
@@ -85,7 +92,7 @@
                 {/hookb}
             </div>
 
-            <ul class="list-unstyled list-inline small topic-info">
+            <ul class="list-unstyled list-inline small topic-footer-info">
                 <li class="topic-info-author">
                     <a href="{$oUser->getProfileUrl()}"><img src="{$oUser->getAvatarUrl(24)}"
                                                              alt="{$oUser->getDisplayName()}" class="avatar"/></a>
@@ -94,7 +101,7 @@
                 <li class="topic-info-favourite">
                     <a href="#" onclick="return ls.favourite.toggle({$oTopic->getId()},this,'topic');"
                        class="favourite {if E::IsUser() AND $oTopic->getIsFavourite()}active{/if}"><span
-                                class="glyphicon glyphicon-star-empty"></span></a>
+                                class="glyphicon glyphicon-star"></span></a>
                     <span class="text-muted favourite-count"
                           id="fav_count_topic_{$oTopic->getId()}">{$oTopic->getCountFavourite()}</span>
                 </li>
@@ -120,8 +127,8 @@
                     {if $oTopic->isVoteInfoShow()}
                         {$bVoteInfoShow=true}
                     {/if}
-                    <div class="vote-down" onclick="return ls.vote.vote({$oTopic->getId()},this,-1,'topic');"><span
-                                class="glyphicon glyphicon-thumbs-down"></span></div>
+                    <div class="vote-up" onclick="return ls.vote.vote({$oTopic->getId()},this,1,'topic');"><span
+                                class="glyphicon glyphicon-plus-sign"></span></div>
                     <div class="vote-count {if $bVoteInfoShow}js-infobox-vote-topic{/if}"
                          id="vote_total_topic_{$oTopic->getId()}"
                          title="{$aLang.topic_vote_count}: {$oTopic->getCountVote()}">
@@ -131,8 +138,8 @@
                             <a href="#" onclick="return ls.vote.vote({$oTopic->getId()},this,0,'topic');">?</a>
                         {/if}
                     </div>
-                    <div class="vote-up" onclick="return ls.vote.vote({$oTopic->getId()},this,1,'topic');"><span
-                                class="glyphicon glyphicon-thumbs-up"></span></div>
+                    <div class="vote-down" onclick="return ls.vote.vote({$oTopic->getId()},this,-1,'topic');"><span
+                                class="glyphicon glyphicon-minus-sign"></span></div>
                     {if $bVoteInfoShow}
                         <div id="vote-info-topic-{$oTopic->getId()}" style="display: none;">
                             <ul class="list-unstyled vote-topic-info">

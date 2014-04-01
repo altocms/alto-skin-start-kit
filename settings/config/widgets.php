@@ -4,10 +4,10 @@ $config['widgets'][] = array(
     'name' => 'topbanner_image.tpl',
     'wgroup' => 'topbanner',
     'params' => array(
-        'style' => 'background:url(' . Config::Get('path.static.skin') . 'assets/images/header-banner1.jpg)',
+        'style' => 'background:url(' . Config::Get('path.static.skin') . 'assets/images/header-banner.jpg)',
         'title' => Config::Get('view.name'),
     ),
-    'display' => false,
+    'display' => true,
 );
 
 $config['widgets'][] = array(
@@ -29,7 +29,7 @@ $config['widgets'][] = array(
             ),
         ),
     ),
-    //'display' => false,
+    'display' => false,
 );
 
 $config['widgets'][] = array(
@@ -45,7 +45,7 @@ $config['widgets'][] = array(
 );
 
 $config['widgets'][] = array(
-    'name' => 'actions/ActionPeople/sidebar.tpl',
+    'name' => 'actions/people/action.people.sidebar.tpl',
     'wgroup' => 'right',
     'on' => 'people',
 );

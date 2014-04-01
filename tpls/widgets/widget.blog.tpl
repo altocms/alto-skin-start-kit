@@ -5,7 +5,7 @@
             <div class="panel-body">
 
                 <header class="widget-header">
-                    <h3><a href="{$oBlog->getUrlFull()}">{$oBlog->getTitle()|escape:'html'}</a></h3>
+                    <h3 class="widget-title"><a href="{$oBlog->getUrlFull()}">{$oBlog->getTitle()|escape:'html'}</a></h3>
                 </header>
 
                 <div class="widget-content">
@@ -20,7 +20,7 @@
                     {if E::IsUser() AND E::UserId() != $oBlog->getOwnerId()}
                         <br/>
                         <br/>
-                        <button type="submit" class="btn btn-success btn-sm {if $oBlog->getUserIsJoin()}active{/if}"
+                        <button type="submit" class="btn btn-default btn-sm {if $oBlog->getUserIsJoin()}active{/if}"
                                 id="blog-join" data-only-text="1"
                                 onclick="ls.blog.toggleJoin(this,{$oBlog->getId()}); return false;">{if $oBlog->getUserIsJoin()}{$aLang.blog_leave}{else}{$aLang.blog_join}{/if}</button>
                         &nbsp;&nbsp;

@@ -4,15 +4,15 @@
         {$oBlog=$oTopic->getBlog()}
         <li class="text-muted js-title-topic"
             title="{$oTopic->getText()|strip_tags|trim|truncate:150:'...'|escape:'html'}">
-            <p class="small">
+            <p>
                 <a href="{$oUser->getProfileUrl()}" class="author">{$oUser->getDisplayName()}</a>
                 <time datetime="{date_format date=$oTopic->getDate() format='c'}">
                     · {date_format date=$oTopic->getDateAdd() hours_back="12" minutes_back="60" now="60" day="day H:i" format="j F Y, H:i"}
                 </time>
             </p>
-            <a href="{$oBlog->getUrlFull()}" class="blog-name">{$oBlog->getTitle()|escape:'html'}</a> &rarr;
+            <a href="{$oBlog->getUrlFull()}" class="stream-topic blog-name">{$oBlog->getTitle()|escape:'html'}</a> &rarr;
             <a href="{$oTopic->getUrl()}" class="stream-topic">{$oTopic->getTitle()|escape:'html'}</a>
-            <small class="text-danger">{$oTopic->getCountComment()}</small>
+            <span class="stream-topic text-danger">{$oTopic->getCountComment()}</span>
         </li>
     {/foreach}
 </ul>

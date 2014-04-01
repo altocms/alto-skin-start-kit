@@ -1,7 +1,7 @@
 <article class="topic page-type_default js-page">
     {block name="page_header"}
         <header class="topic-header">
-            <h1 class="topic-title">
+            <h1 class="topic-header-title">
                 {$oPage->getTitle()|escape:'html'}
             </h1>
         </header>

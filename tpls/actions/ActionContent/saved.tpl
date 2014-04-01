@@ -1,1 +1,0 @@
-{extends file="./drafts.tpl"}

@@ -2,7 +2,7 @@
     <div class="panel-body">
 
         <header class="widget-header">
-            <h3>
+            <h3 class="widget-title">
                 <a href="{router page='comments'}" title="{$aLang.block_stream_comments_all}">{$aLang.block_stream}</a>
             </h3>
         </header>
