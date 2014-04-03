@@ -64,8 +64,11 @@ a.read-more:hover { color: #ff4136; }
 #topbanner h1 a:hover { text-decoration: none; }
 
 /* NAVIGATION */
-#nav { background-color: #f6f6f6; box-shadow: 0 0 10px 5px rgba(64, 64, 64, 0.05); }
+.navbar { background-color: #f6f6f6; box-shadow: 0 0 10px 5px rgba(64, 64, 64, 0.05); }
 
+.navbar-inverse .navbar-nav > li > a {
+    font-weight: bold;
+}
 .navbar-brand-logo { margin-right: 14px; }
 
 .navbar .nav > li .new-messages { color: #ffdc00; }
@@ -78,6 +81,12 @@ a.read-more:hover { color: #ff4136; }
 }
 .nav-userbar .dropdown-menu li a:hover {
     background: #555555;
+}
+.nav.context-menu > li > a {
+    padding: 8px 15px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #2a2a2a;
 }
 
 /* CONTENT */
@@ -120,7 +129,10 @@ a.read-more:hover { color: #ff4136; }
 
 .footer-bottom { background-color: #080808; font-size: 12px; }
 .footer-bottom .container { padding-bottom: 20px; padding-top: 20px; }
-.footer-bottom-copyright img { vertical-align: bottom; margin: 0 4px; }
+.footer-bottom-copyright,
+.footer-bottom-copyright a { vertical-align: top; height: 24px; }
+.footer-bottom-copyright a { vertical-align: top; height: 24px; display: inline-block; }
+.footer-bottom-copyright img { vertical-align: top; margin: 0 4px; }
 
 
 /* STREAM */
@@ -180,7 +192,7 @@ a.user-friends:hover { color: #ff4136; text-decoration: none; }
 
 
 /* VOTING */
-.vote .vote-count { color: #adadad; }
+.vote .vote-count { color: #adadad; font-weight: bold; }
 .vote .vote-count a { color: #adadad; }
 
 .vote.vote-count-positive .vote-count { color: #16b76f; }
@@ -287,13 +299,30 @@ a.user-friends:hover { color: #ff4136; text-decoration: none; }
 /* Topic Link */
 .topic .topic-url a { color: #16b76f; }
 
+/* Topic Content */
+.topic-content {
+    font-family: Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 20pt;
+}
+
+.topic a.read-more {
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 2px 15px;
+}
+
 /* Tags */
 .topic-footer .topic-tags li a { color: #adadad; }
-.topic-footer .topic-tags li a:hover { color: #777; }
+.topic-footer .topic-tags li a:hover { color: #777; text-decoration: none; }
 .topic-footer .topic-tags li.topic-tags-user a { color: #16b76f; }
 
 /* Info */
 .topic-footer-info { border-top: 1px solid #d9d9d9; }
+.topic-footer-info a { color: #868686; }
 .topic-footer-info li.topic-info-author a { color: #868686; }
 .topic-footer-info li.topic-info-author a:hover { color: #ff4136; }
 .topic-footer-info li.topic-info-share a { color: #adadad; }

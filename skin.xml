@@ -25,6 +25,8 @@
             <screenshot preview="yes" file="screenshot.png" />
         </screenshots>
         <themes>
+            <theme code="light" name="Light" />
+            <theme code="green" name="Green" />
         </themes>
         <wgroups>
             <wgroup name="right" />

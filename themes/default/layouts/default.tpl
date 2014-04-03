@@ -235,15 +235,15 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-6 footer-bottom-copyright">
-                    <img src="{Config::Get('path.static.skin')}assets/images/logo-24x24.png"/>
+                <div class="col-sm-3 col-md-3 col-lg-3 footer-bottom-copyright" >
+                    <img src="{asset file="img/alto.png" theme=true}" />
                     {hook run='copyright'}
                 </div>
 
-                <div class="col-sm-6 col-md-6 col-lg-6 text-right footer-bottom-copyright">
+                <div class="col-sm-3 col-md-3 col-lg-3 text-right pull-right footer-bottom-copyright" >
                     Design by
-                    <a href="http://creatime.org" target="_blank">
-                        <img src="{Config::Get('path.static.skin')}assets/images/creatime.png" alt="дизайн студии Creatime.org">
+                    <a href="http://creatime.org" target="_blank" >
+                        <img src="{asset file="img/creatime.png" theme=true}" alt="дизайн студии Creatime.org" />
                     </a>
                 </div>
             </div>

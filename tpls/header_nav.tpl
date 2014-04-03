@@ -1,4 +1,4 @@
-<nav id="nav" class="clearfix">
+<nav id="nav" class="navbar clearfix">
     <div class="container">
         <div class="row">
 
