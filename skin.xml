@@ -12,7 +12,6 @@
         <alto>
             <version>1.0</version>
         </alto>
-        <plugins></plugins>
         <system>
             <php>5.3.0</php>
         </system>
@@ -27,6 +26,7 @@
         <themes>
             <theme code="light" name="Light" />
             <theme code="green" name="Green" />
+            <theme code="red" name="Red" />
         </themes>
         <wgroups>
             <wgroup name="right" />
