@@ -174,28 +174,54 @@
 
         <div class="wrapper-content wrapper-content-dark">
             <fieldset>
-                <legend>{$aLang.settings_profile_section_contacts}</legend>
+                <legend>
+                    {$aLang.settings_profile_section_contacts}
+                </legend>
 
                 {$aUserFieldContactValues=E::User()->getUserFieldValues(true,array('contact','social'))}
-                <div id="user-field-contact-contener">
-                    {foreach $aUserFieldContactValues as $oField}
-                        <p class="js-user-field-item">
-                            <select name="profile_user_field_type[]" onchange="ls.userfield.changeFormField(this);"
-                                    class="form-control">
-                                {foreach $aUserFieldsContact as $oFieldAll}
-                                    <option value="{$oFieldAll->getId()}"
-                                            {if $oFieldAll->getId()==$oField->getId()}selected="selected"{/if}>{$oFieldAll->getTitle()|escape:'html'}</option>
+                <div id="user-field-contact-container">
+                    <div class="row user-field-item js-user-field-item" style="display:none;">
+                        <div class="col-sm-6 col-lg-6">
+                            <select name="profile_user_field_type[]" onchange="ls.userfield.changeFormField(this);" class="form-control">
+                                {foreach from=$aUserFieldsContact item=oFieldAll}
+                                    <option value="{$oFieldAll->getId()}">{$oFieldAll->getTitle()|escape:'html'}</option>
                                 {/foreach}
                             </select>
-                            <input type="text" name="profile_user_field_value[]"
-                                   value="{$oField->getValue()|escape:'html'}" class="form-control">
-                            <a class="glyphicon glyphicon-trash icon-remove" title="{$aLang.user_field_delete}" href="#"
+                        </div>
+                        <div class="col-sm-5 col-lg-5">
+                            <input type="text" name="profile_user_field_value[]" value="" class="form-control">
+                        </div>
+                        <div class="col-sm-1 col-lg-1">
+                            <a href="#" class="glyphicon glyphicon-remove" title="{$aLang.user_field_delete}"
                                onclick="return ls.userfield.removeFormField(this);"></a>
-                        </p>
+                        </div>
+                    </div>
+                    {foreach $aUserFieldContactValues as $oField}
+                        <div class="row user-field-item js-user-field-item">
+                            <div class="col-sm-6 col-lg-6">
+                            <select name="profile_user_field_type[]" onchange="ls.userfield.changeFormField(this);" class="form-control">
+                                {foreach $aUserFieldsContact as $oFieldAll}
+                                    <option value="{$oFieldAll->getId()}" {if $oFieldAll->getId()==$oField->getId()}selected="selected"{/if}>
+                                        {$oFieldAll->getTitle()|escape:'html'}
+                                    </option>
+                                {/foreach}
+                            </select>
+                            </div>
+                            <div class="col-sm-5 col-lg-5">
+                            <input type="text" name="profile_user_field_value[]" value="{$oField->getValue()|escape:'html'}" class="form-control">
+                            </div>
+                            <div class="col-sm-1 col-lg-1">
+                            <a href="#" class="glyphicon glyphicon-remove" title="{$aLang.user_field_delete}"
+                               onclick="return ls.userfield.removeFormField(this);"></a>
+                            </div>
+                        </div>
                     {/foreach}
                 </div>
                 {if $aUserFieldsContact}
-                    <a href="#" onclick="return ls.userfield.addFormField();">{$aLang.user_field_add}</a>
+                    <button class="btn btn-default btn-xs" onclick="return ls.userfield.addFormField();">
+                        <span class="glyphicon glyphicon-plus-sign"></span>
+                        {$aLang.user_field_add}
+                    </button>
                 {/if}
             </fieldset>
         </div>
