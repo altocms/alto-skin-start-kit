@@ -47,10 +47,12 @@
             <label for="blog_type">{$aLang.blog_create_type}</label>
             <select name="blog_type" id="blog_type" class="form-control"
                     onChange="ls.blog.loadInfoType(jQuery(this).val());">
-                <option value="open"
-                        {if $_aRequest.blog_type=='open'}selected{/if}>{$aLang.blog_create_type_open}</option>
-                <option value="close"
-                        {if $_aRequest.blog_type=='close'}selected{/if}>{$aLang.blog_create_type_close}</option>
+                {foreach $aBlogTypes as $oBlogType}
+                    <option value="{$oBlogType->getTypeCode()}"
+                            {if $_aRequest.blog_type=={$oBlogType->getTypeCode()}}selected{/if}>
+                        {$oBlogType->getName()}
+                    </option>
+                {/foreach}
             </select>
 
             <p class="help-block">
