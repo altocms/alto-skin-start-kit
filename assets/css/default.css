@@ -90,22 +90,8 @@ a.read-more:hover { color: #ff4136; }
 }
 
 /* CONTENT */
-.content-inner.action-people,
-.content-inner.action-blogs,
-.content-inner.action-stream,
-/* .content-inner.action-profile, */
-.content-inner.action-talk,
-.content-inner.action-settings,
-.content-inner.action-topic,
-.content-inner.action-question,
-.content-inner.action-link,
-.content-inner.action-photoset,
-.content-inner.action-comments,
+.content-inner,
 .content-inner.action-profile .comment-list,
-.content-inner.action-blog.event-edit,
-.content-inner.action-blog.event-admin,
-.content-inner.action-blog.event-add,
-.content-inner.action-blog.params-users,
 .profile-notes,
 .profile-header,
 .profile-content,
@@ -272,7 +258,9 @@ a.user-friends:hover { color: #ff4136; text-decoration: none; }
 /* ICONS */
 .form-profile .icon-remove,
 .form-profile .icon-remove:hover,
-.topic-poll-add .icon-remove { color: #adadad; }
+.form-profile .glyphicon-remove,
+.form-profile .glyphicon-remove:hover,
+.topic-poll-add .icon-remove { color: #adadad; text-decoration: none; }
 .topic-poll-add .icon-remove:hover { color: #777; }
 
 

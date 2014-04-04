@@ -641,8 +641,10 @@ select, input[type="file"] { height: auto; }
 
 
 /* Настройки */
-#user-field-contact-contener .form-control { display: inline; max-width: 200px; }
-#user-field-contact-contener .icon-remove { position: relative; top: -1px; vertical-align: middle; }
+#user-field-contact-container .form-control { display: inline;  }
+#user-field-contact-container .icon-remove { position: relative; top: -1px; vertical-align: middle; }
+#user-field-contact-container .user-field-item { margin-bottom: 10px; }
+#user-field-contact-container .glyphicon-remove:hover { color: #cc0000; }
 
 
 

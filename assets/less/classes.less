@@ -27,6 +27,14 @@
 @footer-color: #bebebe;
 @footer-bottom-bg: #1c1f23;
 */
+/* MIXINS */
+.color-shift (@color) when (lightness(@color) >= 50%) {
+  color: lighten(@color);
+}
+
+.color-shift (@color) when (lightness(@color) < 50%) {
+  color: darken(@color);
+}
 
 /* COMMON */
 body {
@@ -217,7 +225,7 @@ a:hover, a:visited, a:visited {
   text-decoration: none;
 }
 
-.topic {
+.topic, .content-inner {
   background-color: @content-bg;
 }
 .topic a.read-more {
@@ -225,6 +233,9 @@ a:hover, a:visited, a:visited {
   background-color: @navpills-bg;
   border: 1px solid @navpills-border;
   padding: 2px 15px;
+}
+.content-inner legend {
+  border-bottom-color: @navpills-border;
 }
 .topic-footer-info {
   border-top-color: @topic-tag;
@@ -260,6 +271,9 @@ a:hover, a:visited, a:visited {
   background-color: @content-bg;
   color: @topic-tag;
 }
+
+/* TOOLBAR */
+.toolbar section a:hover { color: @base-color; }
 
 /* FOOTER */
 .footer {
