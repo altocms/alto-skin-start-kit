@@ -3,14 +3,14 @@
     {$aReplyWall=$oWall->getLastReplyWall()}
     <div id="wall-item-{$oWall->getId()}" class="js-wall-item comment-wrapper">
         <div class="comment">
-            <a href="{$oWallUser->getProfileUrl()}"><img src="{$oWallUser->getAvatarUrl(64)}"
-                                                         alt="{$oWallUser->getDisplayName()}"
-                                                         class="comment-avatar"/></a>
+            <a href="{$oWallUser->getProfileUrl()}" class="comment-avatar js-popup-user-{$oWallUser->getId()}">
+                <img src="{$oWallUser->getAvatarUrl(64)}" alt="{$oWallUser->getDisplayName()}" />
+            </a>
 
             <ul class="list-unstyled list-inline small comment-info">
-                <li class="comment-author"><a href="{$oWallUser->getProfileUrl()}">{$oWallUser->getDisplayName()}</a>
+                <li class="comment-info-author"><a href="{$oWallUser->getProfileUrl()}">{$oWallUser->getDisplayName()}</a>
                 </li>
-                <li class="text-muted comment-date">
+                <li class="comment-info-date">
                     <time datetime="{date_format date=$oWall->getDateAdd() format='c'}">{date_format date=$oWall->getDateAdd() hours_back="12" minutes_back="60" now="60" day="day H:i" format="j F Y, H:i"}</time>
                 </li>
             </ul>

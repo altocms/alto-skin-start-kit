@@ -1,12 +1,13 @@
 {foreach $aReplyWall as $oReplyWall}
     {$oReplyUser=$oReplyWall->getUser()}
     <div id="wall-reply-item-{$oReplyWall->getId()}" class="js-wall-reply-item comment wall-comment-reply">
-        <a href="{$oReplyUser->getProfileUrl()}"><img src="{$oReplyUser->getAvatarUrl(48)}"
-                                                      alt="{$oReplyUser->getDisplayName()}" class="comment-avatar"/></a>
+        <a href="{$oReplyUser->getProfileUrl()}" class="comment-avatar js-popup-user-{$oWallUser->getId()}">
+            <img src="{$oReplyUser->getAvatarUrl(48)}" alt="{$oReplyUser->getDisplayName()}" />
+        </a>
 
         <ul class="list-unstyled list-inline small comment-info">
-            <li class="comment-author"><a href="{$oReplyUser->getProfileUrl()}">{$oReplyUser->getDisplayName()}</a></li>
-            <li class="text-muted comment-date">
+            <li class="comment-info-author"><a href="{$oReplyUser->getProfileUrl()}">{$oReplyUser->getDisplayName()}</a></li>
+            <li class="comment-info-date">
                 <time datetime="{date_format date=$oReplyWall->getDateAdd() format='c'}">{date_format date=$oReplyWall->getDateAdd() hours_back="12" minutes_back="60" now="60" day="day H:i" format="j F Y, H:i"}</time>
             </li>
         </ul>

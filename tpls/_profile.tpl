@@ -49,9 +49,9 @@
                 {hook run='profile_header_end'}
             {/block}
         </div>
-        <div class="profile-content">
-            {block name="layout_profile_content"}
-            {/block}
-        </div>
+
+        {block name="layout_profile_content"}
+        {/block}
+
     </div>
 {/block}

@@ -32,6 +32,10 @@ a.link-dashed:hover { text-decoration: none; }
 a.link-dotted { border-bottom: 1px dotted; }
 a.link-dotted:hover { text-decoration: none; }
 
+.avatar, .avatar:hover {
+    display: inline-block;
+    text-decoration: none;
+}
 
 /* header of site */
 #header .navbar h1.site-name { margin: 0; }
@@ -457,7 +461,7 @@ select, input[type="file"] { height: auto; }
 
 /* Блок с комментариями */
 .comments-header { margin-bottom: 30px; position: relative; font-weight: bold; }
-.comments-header .subscribe { position: absolute; right: 0; top: -5px; }
+.comments-header .subscribe { position: absolute; right: 0; font-weight: normal; display: inline-block; vertical-align: middle; }
 
 .comment-wrapper { position: relative; }
 .comment-wrapper .comment-wrapper { padding-left: 20px; }
@@ -466,7 +470,7 @@ select, input[type="file"] { height: auto; }
 
 
 /* Комментарий */
-.comment { min-height: 48px; position: relative; }
+.comment { min-height: 92px; position: relative; }
 .comment .comment-avatar { position: absolute; }
 
 
@@ -664,7 +668,7 @@ select, input[type="file"] { height: auto; }
 .wall-submit.wall-submit-reply .counter { display: none; }
 .wall-submit.wall-submit-reply.active .counter { display: block; }
 
-.comment.wall-comment-reply { min-height: 48px; padding: 15px 15px 15px 45px; margin-bottom: 10px; }
+.comment.wall-comment-reply { min-height: 48px; padding: 15px 15px 15px 55px; margin-bottom: 10px; }
 .comment.wall-comment-reply .comment-avatar { top: 12px; width: 48px; height: 48px; }
 
 

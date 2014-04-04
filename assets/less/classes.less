@@ -28,13 +28,37 @@
 @footer-bottom-bg: #1c1f23;
 */
 /* MIXINS */
-.color-shift (@color) when (lightness(@color) >= 50%) {
-  color: lighten(@color);
+.background-gradient (@top-color, @bottom-color) {
+  background: -moz-linear-gradient(top, @top-color 0%, @bottom-color 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @top-color), color-stop(100%, @bottom-color));
+  background: -webkit-linear-gradient(top, @top-color 0%, @bottom-color 100%);
+  background: -o-linear-gradient(top, @top-color 0%, @bottom-color 100%);
+  background: -ms-linear-gradient(top, @top-color 0%, @bottom-color 100%);
+  background: linear-gradient(top, @top-color 0%, @bottom-color 100%);
 }
 
-.color-shift (@color) when (lightness(@color) < 50%) {
-  color: darken(@color);
+.border-color (@color) when (lightness(@color) >= 50%) {
+  border-color: darken(@color, 15%);
 }
+.border-color (@color) when (lightness(@color) < 50%) {
+  border-color: lighten(@color, 15%);
+}
+
+.background-comment (@color) when (lightness(@color) >= 50%) {
+  @color-bg: darken(@color, 7%);
+  background-color: @color-bg;
+  &.comment-self {
+    background-color: hsl(90, 20, lightness(@color-bg));
+  }
+  &.comment-deleted {
+    background-color: hsl(0, 25, lightness(@color-bg));
+  }
+}
+.background-comment (@color) when (lightness(@color) < 50%) {
+  @color-bg: lighten(@color, 7%);
+  background-color: @color-bg;
+}
+
 
 /* COMMON */
 body {
@@ -93,12 +117,7 @@ a:hover, a:visited, a:visited {
   border: 1px solid @nav-bordered-border;
   box-shadow: 0 2px 4px rgba(64, 64, 64, 0.05);
   background-color: @nav-bordered-bg;
-  background: -moz-linear-gradient(top, @nav-bordered-gradient-top 0%, @nav-bordered-gradient-btm 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @nav-bordered-gradient-top), color-stop(100%, @nav-bordered-gradient-btm));
-  background: -webkit-linear-gradient(top, @nav-bordered-gradient-top 0%, @nav-bordered-gradient-btm 100%);
-  background: -o-linear-gradient(top, @nav-bordered-gradient-top 0%, @nav-bordered-gradient-btm 100%);
-  background: -ms-linear-gradient(top, @nav-bordered-gradient-top 0%, @nav-bordered-gradient-btm 100%);
-  background: linear-gradient(top, @nav-bordered-gradient-top 0%, @nav-bordered-gradient-btm 100%);
+  .background-gradient(@nav-bordered-gradient-top, @nav-bordered-gradient-btm);
 }
 
 .nav-pills.context-menu > li.bordered + li.bordered {
@@ -225,7 +244,7 @@ a:hover, a:visited, a:visited {
   text-decoration: none;
 }
 
-.topic, .content-inner {
+.topic {
   background-color: @content-bg;
 }
 .topic a.read-more {
@@ -233,9 +252,6 @@ a:hover, a:visited, a:visited {
   background-color: @navpills-bg;
   border: 1px solid @navpills-border;
   padding: 2px 15px;
-}
-.content-inner legend {
-  border-bottom-color: @navpills-border;
 }
 .topic-footer-info {
   border-top-color: @topic-tag;
@@ -249,8 +265,69 @@ a:hover, a:visited, a:visited {
 }
 .topic-footer-info li.topic-info-comments a.icon-active,
 .topic-footer-info li.topic-info-comments a.new,
-.topic-footer-info .favourite.active {
+.topic-footer-info .favourite.active,
+.comment-info .favourite.active {
   color: @base-color;
+}
+
+.topic-info-date, .topic-info-date a { color: @title-color; opacity: .7; }
+
+/* CONTENT */
+.content-inner legend {
+  .border-color(@content-bg);
+}
+.content-inner.action-people,
+.content-inner.action-blogs,
+.content-inner.action-stream,
+.content-inner.action-talk,
+.content-inner.action-settings,
+.content-inner.action-topic,
+.content-inner.action-content,
+.content-inner.action-question,
+.content-inner.action-link,
+.content-inner.action-photoset,
+.content-inner.action-comments,
+.content-inner.action-profile .comment-list,
+.content-inner.action-blog.event-edit,
+.content-inner.action-blog.event-admin,
+.content-inner.action-blog.event-add,
+.content-inner.action-blog.params-users,
+.profile-notes,
+.profile-header,
+.profile-content,
+.action-header,
+#comments.comments {
+  background-color: @content-bg;
+}
+
+/* TABLES */
+.table>thead>tr>th,
+.table>tbody>tr>th,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
+  .border-color(@content-bg);
+}
+
+/* COMMENTS */
+.comment {
+  background-color: @content-bg;
+}
+.comment .comment-avatar {
+  border-color: @background;
+}
+#comments .comment {
+  .background-comment(@content-bg);
+}
+#comments .comment .comment-avatar { border-color: @content-bg; }
+.comment-info-author a { color: @title-color; }
+.comment-info-author a.comment-topic-author { color: @base-color; }
+.comment-info-date, .comment-info-date a { color: @title-color; opacity: .7; }
+
+/* PROFILE */
+.profile-header, .profile-content {
+  background-color: @content-bg;
 }
 
 /* PAGINATION */

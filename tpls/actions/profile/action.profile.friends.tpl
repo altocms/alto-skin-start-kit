@@ -6,6 +6,8 @@
 
 {block name="layout_profile_content"}
 
-{include file='user_list.tpl' aUsersList=$aFriends}
+<div class="profile-content">
+    {include file='user_list.tpl' aUsersList=$aFriends}
+</div>
 
 {/block}

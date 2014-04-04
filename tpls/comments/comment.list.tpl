@@ -13,11 +13,13 @@
         </div>
 
         <section class="comment">
-            <a href="{$oUser->getProfileUrl()}"><img src="{$oUser->getAvatarUrl(48)}" alt="avatar" class="comment-avatar" /></a>
+            <a href="{$oUser->getProfileUrl()}" class="comment-avatar js-popup-user-{$oUser->getId()}">
+                <img src="{$oUser->getAvatarUrl(48)}" alt="avatar"  />
+            </a>
 
             <ul class="list-unstyled list-inline small comment-info">
-                <li class="comment-author"><a href="{$oUser->getProfileUrl()}">{$oUser->getDisplayName()}</a></li>
-                <li class="comment-date">
+                <li class="comment-info-author"><a href="{$oUser->getProfileUrl()}">{$oUser->getDisplayName()}</a></li>
+                <li class="comment-info-date">
                     <a href="{if Config::Get('module.comment.nested_per_page')}{router page='comments'}{else}{$oTopic->getUrl()}#comment{/if}{$oComment->getId()}" class="link-dotted" title="{$aLang.comment_url_notice}">
                         <time datetime="{date_format date=$oComment->getDate() format='c'}">{date_format date=$oComment->getDate() hours_back="12" minutes_back="60" now="60" day="day H:i" format="j F Y, H:i"}</time>
                     </a>

@@ -12,14 +12,16 @@
         <span id="count-comments">{$iCountComment}</span> {$iCountComment|declension:$aLang.comment_declension:'russian'}
 
         {if $bAllowSubscribe AND E::IsUser()}
-            <div class="hidden-xs text-muted subscribe">
-                {$aLang.comment_whatch}
-                <label class="checkbox">
-                    <input {if $oSubscribeComment AND $oSubscribeComment->getStatus()}checked="checked"{/if}
-                           type="checkbox" id="comment_subscribe" class="input-checkbox"
-                           onchange="ls.subscribe.toggle('{$sTargetType}_new_comment','{$iTargetId}','',this.checked);">
-                    {$aLang.comment_subscribe}
-                </label>
+            <div class="hidden-xs text-muted subscribe form-inline">
+                {$aLang.comment_whatch}:
+                <div class="checkbox">
+                    <label>
+                        <input {if $oSubscribeComment AND $oSubscribeComment->getStatus()}checked="checked"{/if}
+                               type="checkbox" id="comment_subscribe" class="input-checkbox"
+                               onchange="ls.subscribe.toggle('{$sTargetType}_new_comment','{$iTargetId}','',this.checked);">
+                        {$aLang.comment_subscribe}
+                    </label>
+                </div>
             </div>
         {/if}
 

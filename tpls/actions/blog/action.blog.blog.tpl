@@ -109,18 +109,19 @@
 
                 <div class="col-lg-6">
                     <strong>{$aLang.blog_user_administrators} ({$iCountBlogAdministrators}):</strong><br/>
-					<span class="user-avatar">
-						<a href="{$oUserOwner->getProfileUrl()}"><img src="{$oUserOwner->getAvatarUrl(24)}"
-                                                                      alt="avatar"/></a>
-						<a href="{$oUserOwner->getProfileUrl()}">{$oUserOwner->getDisplayName()}</a>
-					</span>
+                    <span class="avatar">
+                        <a href="{$oUserOwner->getProfileUrl()}">
+                            <img src="{$oUserOwner->getAvatarUrl(24)}" alt="avatar"/>
+                        </a>
+                        <a href="{$oUserOwner->getProfileUrl()}">{$oUserOwner->getDisplayName()}</a>
+                    </span>
                     {if $aBlogAdministrators}
                     {foreach $aBlogAdministrators as $oBlogUser}
                         {$oUser=$oBlogUser->getUser()}
                         <span class="user-avatar">
-								<a href="{$oUser->getProfileUrl()}"><img src="{$oUser->getAvatarUrl(24)}" alt="avatar"/></a>
-								<a href="{$oUser->getProfileUrl()}">{$oUser->getDisplayName()}</a>
-							</span>
+                            <a href="{$oUser->getProfileUrl()}"><img src="{$oUser->getAvatarUrl(24)}" alt="avatar"/></a>
+                            <a href="{$oUser->getProfileUrl()}">{$oUser->getDisplayName()}</a>
+                        </span>
                     {/foreach}
                     {/if}<br/><br/>
 
@@ -129,9 +130,9 @@
                         {foreach $aBlogModerators as $oBlogUser}
                             {$oUser=$oBlogUser->getUser()}
                             <span class="user-avatar">
-								<a href="{$oUser->getProfileUrl()}"><img src="{$oUser->getAvatarUrl(24)}" alt="avatar"/></a>
-								<a href="{$oUser->getProfileUrl()}">{$oUser->getDisplayName()}</a>
-							</span>
+                                <a href="{$oUser->getProfileUrl()}"><img src="{$oUser->getAvatarUrl(24)}" alt="avatar"/></a>
+                                <a href="{$oUser->getProfileUrl()}">{$oUser->getDisplayName()}</a>
+                            </span>
                         {/foreach}
                     {else}
                         <span class="text-muted">{$aLang.blog_user_moderators_empty}</span>

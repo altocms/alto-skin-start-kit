@@ -77,24 +77,24 @@
     </div>
 
     {if $oContentType->isAllow('link')}
-        {include file="fields/field.link.edit.tpl"}
+        {include file="fields/field.link-edit.tpl"}
     {/if}
 
     {if $oContentType->isAllow('poll')}
-        {include file="fields/field.poll.edit.tpl"}
+        {include file="fields/field.poll-edit.tpl"}
     {/if}
 
     {if $oContentType->isAllow('photoset')}
-        {include file="fields/field.photoset.edit.tpl"}
+        {include file="fields/field.photoset-edit.tpl"}
     {/if}
 
     {if $oContentType}
         {foreach from=$oContentType->getFields() item=oField}
-            {include file="fields/field.custom_`$oField->getFieldType()`.edit.tpl" oField=$oField}
+            {include file="fields/customs/field.custom.`$oField->getFieldType()`-edit.tpl" oField=$oField}
         {/foreach}
     {/if}
 
-    {include file="fields/field.tags.edit.tpl"}
+    {include file="fields/field.tags-edit.tpl"}
 
     <div class="checkbox">
         <label>

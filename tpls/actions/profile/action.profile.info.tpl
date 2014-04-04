@@ -13,6 +13,8 @@
     </div>
 {/if}
 
+<div class="profile-content">
+
 <div class="row">
 
     <div class="col-lg-6">
@@ -211,4 +213,5 @@
 
 {hook run='profile_whois_item_end' oUserProfile=$oUserProfile}
 
+</div>
 {/block}

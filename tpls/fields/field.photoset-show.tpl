@@ -29,7 +29,7 @@
         {if count($aPhotos)}
             {foreach $aPhotos as $oPhoto}
                 <li class="topic-photoset-item">
-                    <a class="topic-photoset-image" href="{$oPhoto->getUrl(1000)}" rel="prettyPhoto"  title="{$oPhoto->getDescription()}">
+                    <a class="topic-photoset-image" href="{$oPhoto->getUrl()}" rel="prettyPhoto[pp_gal]"  title="{$oPhoto->getDescription()}">
                         <img src="{$oPhoto->getUrl('x100')}" {$oPhoto->getImgSizeAttr('x100')} alt="{$oPhoto->getDescription()}" class="" />
                     </a>
                 </li>

@@ -2,6 +2,7 @@
 
 {block name="layout_profile_content"}
 
+<div class="profile-content">
     {if count($aStreamEvents)}
         <ul class="list-unstyled stream-list" id="stream-list">
             {include file='actions/stream/action.stream.events.tpl'}
@@ -14,5 +15,6 @@
     {else}
         {$aLang.stream_no_events}
     {/if}
+</div>
 
 {/block}

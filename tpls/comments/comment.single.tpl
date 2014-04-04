@@ -14,13 +14,15 @@
 	{if !$oComment->getDelete() OR $bOneComment OR (E::IsAdmin())}
 		<a name="comment{$oComment->getId()}"></a>
 
-		<a href="{$oUser->getProfileUrl()}"><img src="{$oUser->getAvatarUrl(64)}" alt="{$oUser->getDisplayName()}" class="comment-avatar" /></a>
+		<a href="{$oUser->getProfileUrl()}"  class="comment-avatar js-popup-user-{$oUser->getId()}">
+            <img src="{$oUser->getAvatarUrl(64)}" alt="{$oUser->getDisplayName()}" />
+        </a>
 
 		<ul class="list-unstyled small comment-info">
-			<li class="comment-author">
+			<li class="comment-info-author">
 				<a href="{$oUser->getProfileUrl()}"  {if $iAuthorId == $oUser->getId()}title="{if $sAuthorNotice}{$sAuthorNotice}{/if}" class="comment-topic-author"{/if}>{$oUser->getDisplayName()}</a>
 			</li>
-			<li class="comment-date">
+			<li class="comment-info-date">
 				<a href="{if Config::Get('module.comment.nested_per_page')}{router page='comments'}{else}#comment{/if}{$oComment->getId()}" class="link-dotted" title="{$aLang.comment_url_notice}">
 					<time datetime="{date_format date=$oComment->getDate() format='c'}">{date_format date=$oComment->getDate() hours_back="12" minutes_back="60" now="60" day="day H:i" format="j F Y, H:i"}</time>
 				</a>
@@ -47,9 +49,9 @@
                             voted-down
                         {/if}
                     {/if}">
-					<div class="vote-down" onclick="return ls.vote.vote({$oComment->getId()},this,-1,'comment');"><span class="glyphicon glyphicon-thumbs-down"></span></div>
+                    <div class="vote-up" onclick="return ls.vote.vote({$oComment->getId()},this,1,'comment');"><span class="glyphicon glyphicon-plus-sign"></span></div>
 					<span class="vote-count" id="vote_total_comment_{$oComment->getId()}">{if $oComment->getRating() > 0}+{/if}{$oComment->getRating()}</span>
-					<div class="vote-up" onclick="return ls.vote.vote({$oComment->getId()},this,1,'comment');"><span class="glyphicon glyphicon-thumbs-up"></span></div>
+                    <div class="vote-down" onclick="return ls.vote.vote({$oComment->getId()},this,-1,'comment');"><span class="glyphicon glyphicon-minus-sign"></span></div>
 				</li>
 			{/if}
 
