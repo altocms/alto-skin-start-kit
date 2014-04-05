@@ -69,10 +69,6 @@ a {
   color: @base-color;
 }
 
-a:hover, a:visited, a:visited {
-  color: @base-light;
-}
-
 /* BUTTONS */
 .btn-success {
   color: #fff;
@@ -247,6 +243,10 @@ a:hover, a:visited, a:visited {
 .topic {
   background-color: @content-bg;
 }
+.topic a:hover, .topic a:visited, .topic a:visited {
+  color: @base-light;
+}
+
 .topic a.read-more {
   color: @title-color !important;
   background-color: @navpills-bg;

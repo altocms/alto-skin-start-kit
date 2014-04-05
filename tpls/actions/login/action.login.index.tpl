@@ -21,7 +21,7 @@
 
     {hook run='login_begin'}
 
-    <form action="{router page='login'}" method="POST" id="login-form">
+    <form action="{router page='login'}" method="post" class="js-form-login">
         {hook run='form_login_begin'}
 
         <div class="form-group">
@@ -45,13 +45,13 @@
 
         {hook run='form_login_end'}
 
-        <button type="submit" name="submit_login" class="btn btn-success" id="login-form-submit"
-                disabled="disabled">{$aLang.user_login_submit}</button>
+        <button type="submit" name="submit_login" class="btn btn-success js-form-login-submit" id="login-form-submit" disabled="disabled">
+            {$aLang.user_login_submit}
+        </button>
 
-        <br/>
-        <br/>
-        <a href="{router page='registration'}">{$aLang.user_registration}</a><br/>
-        <a href="{router page='login'}reminder/">{$aLang.user_password_reminder}</a>
+        <a class="btn btn-default" href="{router page='registration'}">{$aLang.user_registration}</a>
+        <a class="btn btn-default" href="{router page='login'}reminder/">{$aLang.user_password_reminder}</a>
+
     </form>
 
     {if Config::Get('general.reg.invite')}

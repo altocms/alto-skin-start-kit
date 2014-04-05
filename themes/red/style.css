@@ -4,11 +4,6 @@ body {
 a {
   color: #b82223;
 }
-a:hover,
-a:visited,
-a:visited {
-  color: #ff0000;
-}
 .btn-success {
   color: #fff;
   background-color: #323a45;
@@ -155,6 +150,11 @@ a:visited {
 }
 .topic {
   background-color: #e7eaef;
+}
+.topic a:hover,
+.topic a:visited,
+.topic a:visited {
+  color: #ff0000;
 }
 .topic a.read-more {
   color: #323a45 !important;
