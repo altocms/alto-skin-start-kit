@@ -56,7 +56,7 @@
                 {$aLang.blog_admin_users_submit}
             </button>
         </form>
-        {include file='paging.tpl' aPaging=$aPaging}
+        {include file='commons/common.pagination.tpl' aPaging=$aPaging}
     {else}
         {$aLang.blog_admin_users_empty}
     {/if}

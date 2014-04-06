@@ -61,7 +61,7 @@
     {$sNoticeNotAllow}
 {else}
     {if E::IsUser()}
-        {include file='editor.tpl' sImgToLoad='form_comment_text' sSettingsTinymce='ls.settings.getTinymceComment()' sSettingsMarkitup='ls.settings.getMarkitupComment()'}
+        {include file='commons/common.editor.tpl' sImgToLoad='form_comment_text' sSettingsTinymce='ls.settings.getTinymceComment()' sSettingsMarkitup='ls.settings.getMarkitupComment()'}
         <div class="reply-header" id="comment_id_0">
             <a href="#" class="link-dotted"
                onclick="ls.comments.toggleCommentForm(0); return false;">{$sNoticeCommentAdd}</a>

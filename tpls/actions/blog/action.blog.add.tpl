@@ -12,7 +12,7 @@
         {include file='menus/menu.blog_edit.tpl'}
     {/if}
 
-    {include file='editor.tpl' sImgToLoad='blog_description' sSettingsTinymce='ls.settings.getTinymceComment()' sSettingsMarkitup='ls.settings.getMarkitupComment()'}
+    {include file='commons/common.editor.tpl' sImgToLoad='blog_description' sSettingsTinymce='ls.settings.getTinymceComment()' sSettingsMarkitup='ls.settings.getMarkitupComment()'}
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
             ls.lang.load({lang_load name="blog_create_type_open_notice,blog_create_type_close_notice"});

@@ -67,6 +67,6 @@
         <div class="alert alert-info notice-empty">{$aLang.talk_favourite_empty}</div>
     {/if}
 
-    {include file='paging.tpl' aPaging=$aPaging}
+    {include file='commons/common.pagination.tpl' aPaging=$aPaging}
 
 {/block}

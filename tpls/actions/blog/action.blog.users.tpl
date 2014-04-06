@@ -10,7 +10,7 @@
         {foreach $aBlogUsers as $oBlogUser}
             {$aUsersList[]=$oBlogUser->getUser()}
         {/foreach}
-        {include file='user_list.tpl' aUsersList=$aUsersList bUsersUseOrder=true sUsersRootPage=$sUsersRootPage}
+        {include file='commons/common.user_list.tpl' aUsersList=$aUsersList bUsersUseOrder=true sUsersRootPage=$sUsersRootPage}
     {else}
         {$aLang.blog_user_readers_empty}
     {/if}

@@ -12,7 +12,7 @@
         <div class="content" id="text_preview"></div>
     </div>
 
-    {include file='editor.tpl' sImgToLoad='talk_text' sSettingsTinymce='ls.settings.getTinymceComment()' sSettingsMarkitup='ls.settings.getMarkitupComment()'}
+    {include file='commons/common.editor.tpl' sImgToLoad='talk_text' sSettingsTinymce='ls.settings.getTinymceComment()' sSettingsMarkitup='ls.settings.getMarkitupComment()'}
 
     <form action="" method="POST" enctype="multipart/form-data" class="wrapper-content">
 

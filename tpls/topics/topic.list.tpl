@@ -8,7 +8,7 @@
         {/if}
     {/foreach}
 
-    {include file='paging.tpl' aPaging=$aPaging}
+    {include file='commons/common.pagination.tpl' aPaging=$aPaging}
 {else}
     <div class="alert alert-info">
         {$aLang.blog_no_topic}

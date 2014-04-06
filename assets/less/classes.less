@@ -243,7 +243,8 @@ a {
 .topic {
   background-color: @content-bg;
 }
-.topic a:hover, .topic a:visited, .topic a:visited {
+.topic-content a:hover, .topic-content a:visited, .topic-content a:visited,
+.text a:hover, .text a:visited, .text a:visited {
   color: @base-light;
 }
 
@@ -253,6 +254,10 @@ a {
   border: 1px solid @navpills-border;
   padding: 2px 15px;
 }
+.topic a.read-more:hover {
+  color: @base-color !important;
+}
+
 .topic-footer-info {
   border-top-color: @topic-tag;
 }
@@ -276,8 +281,8 @@ a {
 .content-inner legend {
   .border-color(@content-bg);
 }
-.content-inner.action-people,
-.content-inner.action-blogs,
+/* .content-inner.action-people, */
+/* .content-inner.action-blogs, */
 .content-inner.action-stream,
 .content-inner.action-talk,
 .content-inner.action-settings,
@@ -292,6 +297,7 @@ a {
 .content-inner.action-blog.event-admin,
 .content-inner.action-blog.event-add,
 .content-inner.action-blog.params-users,
+.content-inner-panel,
 .profile-notes,
 .profile-header,
 .profile-content,

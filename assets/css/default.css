@@ -92,8 +92,8 @@ a.read-more:hover { color: #ff4136; }
 }
 
 /* CONTENT */
-.content-inner.action-people,
-.content-inner.action-blogs,
+/* .content-inner.action-people, */
+/* .content-inner.action-blogs, */
 .content-inner.action-stream,
 .content-inner.action-talk,
 .content-inner.action-settings,
@@ -108,17 +108,22 @@ a.read-more:hover { color: #ff4136; }
 .content-inner.action-blog.event-admin,
 .content-inner.action-blog.event-add,
 .content-inner.action-blog.params-users,
+.content-inner.action-admin,
+.content-inner-panel,
 .profile-notes,
 .profile-header,
 .profile-content,
 .action-header,
-#comments.comments,
-.content-inner.action-admin { background-color: #fff; padding: 25px; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02); }
+#comments.comments { background-color: #fff; padding: 25px; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02); }
 
 /* .content-inner.action-profile.params-created, */
 .content-inner.action-profile.params-favourites,
 .content-inner.action-talk.event-read,
 .content-inner.action-topic.event-saved { background-color: transparent; padding: 0; box-shadow: none; }
+
+.content-inner-paging {
+    margin-top: 30px;
+}
 
 .action-header { margin-bottom: 30px; }
 .action-header .nav-filter-wrapper { margin-bottom: 0 !important; }
@@ -236,7 +241,7 @@ a.user-friends:hover { color: #ff4136; text-decoration: none; }
 
 
 /* SEARCH */
-.search-item { background-color: #f4f3ec; }
+/* .search-item { background-color: #f4f3ec; } */
 .search-abc li.active a { color: #333; border: none; }
 .search-tags { margin-bottom: 30px; padding: 15px; background-color: rgba(0, 0, 0, 0.05); }
 .search-tags .form-group { margin-bottom: 0; }

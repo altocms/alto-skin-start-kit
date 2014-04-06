@@ -7,7 +7,7 @@
 {block name="layout_profile_content"}
 
 <div class="profile-content">
-    {include file='user_list.tpl' aUsersList=$aFriends}
+    {include file='commons/common.user_list.tpl' aUsersList=$aFriends}
 </div>
 
 {/block}

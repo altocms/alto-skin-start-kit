@@ -10,6 +10,6 @@
         <h1>{$aLang.people}</h1>
     </div>
 
-    {include file='user_list.tpl' aUsersList=$aUsersLast}
+    {include file='commons/common.user_list.tpl' aUsersList=$aUsersLast}
 
 {/block}

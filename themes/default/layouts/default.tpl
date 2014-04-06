@@ -85,8 +85,7 @@
     </script>
 
     <!--[if lt IE 9]>
-    <script src="{Config::Get('path.static.skin')}/js/html5shiv.js"></script>
-    <script src="{Config::Get('path.static.skin')}/js/respond.min.js"></script>
+    <script src="{asset file='js/respond.min.js'}"></script>
     <![endif]-->
 
     <!--[if IE 7]>
@@ -136,28 +135,28 @@
 {/if}
 {include file='modals/modal.empty.tpl'}
 
-{include file='header_top.tpl'}
+{include file='commons/common.header_top.tpl'}
 
 {if Config::Get('view.header.banner')}
     {wgroup group="topbanner"}
 {/if}
 
-{include file='header_nav.tpl'}
+{include file='commons/common.header_nav.tpl'}
 
 <section id="container" class="{hook run='container_class'}">
     <div id="wrapper" class="container {hook run='wrapper_class'}">
         <div class="row">
 
             {if !$noSidebar AND $sidebarPosition == 'left'}
-                {include file='sidebar.tpl'}
+                {include file='commons/common.sidebar.tpl'}
             {/if}
 
             <div id="content" role="main" class="{if $noSidebar}col-md-12 col-lg-12{else}col-md-8 col-lg-8{/if} content{if $sidebarPosition == 'left'} content-right{/if}"
                  {if $sMenuItemSelect=='profile'}itemscope itemtype="http://data-vocabulary.org/Person"{/if}>
 
                 <div class="content-inner action-{$sAction}{if $sEvent} event-{$sEvent}{/if}{if $aParams[0]} params-{$aParams[0]}{/if}">
-                    {include file='nav_content.tpl'}
-                    {include file='system_message.tpl'}
+                    {include file='menus/menu.content.tpl'}
+                    {include file='commons/common.messages.tpl'}
 
                     {block name="layout_content"}
                     {hook run='content_begin'}
@@ -170,7 +169,7 @@
             <!-- /content -->
 
             {if !$noSidebar AND $sidebarPosition != 'left'}
-                {include file='sidebar.tpl'}
+                {include file='commons/common.sidebar.tpl'}
             {/if}
 
         </div>
@@ -251,7 +250,7 @@
     </div>
 </footer>
 
-{include file='toolbar.tpl'}
+{include file='commons/common.toolbar.tpl'}
 
 {hook run='layout_body_end'}
 {/block}

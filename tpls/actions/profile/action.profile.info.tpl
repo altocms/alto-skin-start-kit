@@ -208,7 +208,7 @@
 {if $aUsersFriend}
     <h4><a href="{$oUserProfile->getProfileUrl()}friends/" class="user-friends">{$aLang.profile_friends}</a>
         <span class="text-muted">({$iCountFriendsUser})<span></h4>
-    {include file='user_list_avatar.tpl' aUsersList=$aUsersFriend}
+    {include file='commons/common.user_list_avatar.tpl' aUsersList=$aUsersFriend}
 {/if}
 
 {hook run='profile_whois_item_end' oUserProfile=$oUserProfile}

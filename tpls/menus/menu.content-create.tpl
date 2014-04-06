@@ -47,7 +47,6 @@
     </ul>
 </div>
 
-
 {if $sMenuItemSelect=='topic'}
     <ul class="nav nav-pills nav-filter-wrapper">
         {foreach from=$aContentTypes item=oContentType}
@@ -65,6 +64,5 @@
         {hook run='menu_create_topic_item'}
     </ul>
 {/if}
-
 
 {hook run='menu_create' sMenuItemSelect=$sMenuItemSelect sMenuSubItemSelect=$sMenuSubItemSelect}

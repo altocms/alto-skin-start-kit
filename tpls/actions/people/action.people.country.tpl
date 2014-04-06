@@ -10,6 +10,6 @@
             <span class="text-muted">{$oCountry->getName()|escape:'html'}{if $aPaging} ({$aPaging.iCount}){/if}</span>
         </h1>
     </div>
-    {include file='user_list.tpl' aUsersList=$aUsersCountry}
+    {include file='commons/common.user_list.tpl' aUsersList=$aUsersCountry}
 
 {/block}

@@ -53,4 +53,4 @@
     {/foreach}
 </div>
 
-{include file='paging.tpl' aPaging=$aPaging}
+{include file='commons/common.pagination.tpl' aPaging=$aPaging}
