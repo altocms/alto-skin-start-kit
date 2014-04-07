@@ -40,7 +40,7 @@
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
-    <link href="{Config::Get('path.static.skin')}assets/images/favicon.ico?v1" rel="shortcut icon"/>
+    <link href="{asset file="img/favicon.png" theme=true}?v1" rel="shortcut icon"/>
     <link rel="search" type="application/opensearchdescription+xml" href="{router page='search'}opensearch/"
           title="{Config::Get('view.name')}"/>
 

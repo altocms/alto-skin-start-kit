@@ -1,12 +1,10 @@
 <script type="text/javascript">
     jQuery(document).ready(function($){
         $("a[rel^='prettyPhoto']").prettyPhoto({
-            social_tools:'',
-            show_title: false,
-            slideshow:true,
+            social_tools: '',
+            show_title: true,
             deeplinking: false
         });
-
         $('.js-topic-photoset-list').rowGrid({
             itemSelector: '.topic-photoset-item',
             minMargin: 10,
