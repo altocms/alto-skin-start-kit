@@ -199,23 +199,23 @@ a.user-friends:hover { color: #ff4136; text-decoration: none; }
 
 
 /* VOTING */
-.vote .vote-count { color: #adadad; font-weight: bold; }
-.vote .vote-count a { color: #adadad; }
+.vote-count { color: #adadad; font-weight: bold; }
+.vote-count a { color: #adadad; }
 
-.vote.vote-count-positive .vote-count { color: #16b76f; }
-.vote.vote-count-negative .vote-count { color: #ff4136; }
+.vote-count-positive .vote-count { color: #16b76f; }
+.vote-count-negative .vote-count { color: #ff4136; }
 
-.vote .vote-up,
-.vote .vote-down { color: #adadad; }
+.vote-up,
+.vote-down { color: #adadad; }
 
-.vote .vote-up:hover { color: #16b76f; }
-.vote .vote-down:hover { color: #ff4136; }
+.vote-up:hover { color: #16b76f; }
+.vote-down:hover { color: #ff4136; }
 
-.vote.voted.voted-up .vote-up { color: #16b76f; }
-.vote.voted.voted-down .vote-down { color: #ff4136; }
+.voted-up .vote-up { color: #16b76f; }
+.voted-down .vote-down { color: #ff4136; }
 
-.vote.voted.voted-up .vote-down:hover { color: #ff4136; }
-.vote.voted.voted-down .vote-up:hover { color: #16b76f; }
+.voted-up .vote-down:hover { color: #ff4136; }
+.voted-down .vote-up:hover { color: #16b76f; }
 
 
 /* FAVOURITES */
