@@ -40,6 +40,10 @@ jQuery(document).ready(function ($) {
         return false;
     });
 
+    $('[id^=modal-].modal').on('shown.bs.modal', function(e){
+        $(this).find('.js-focus-in:visible').first().focus();
+    });
+
     /* Special toggles */
     $('[data-toggle=file][data-target]').each(function () {
         var target = $($(this).data('target')).first();

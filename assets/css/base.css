@@ -144,13 +144,13 @@ body.light .site-info { margin-bottom: 40px; }
 .toolbar .toolbar-scrollup { display: none; }
 
 
-/* Список пользователей */
+/* Users list */
 .user-list-avatar {min-height: 48px; }
 .user-list-avatar li { margin-bottom: 10px; position: relative; }
 .user-list-avatar li img { display: block; }
 
 
-/* Поиск */
+/* Searching */
 .search-item { padding: 15px; margin-bottom: 20px; }
 #form-users-search.search-item .form-control { margin-bottom: 10px; }
 
@@ -160,7 +160,7 @@ body.light .site-info { margin-bottom: 40px; }
 
 .searched-item { background: #fffaaa; border-bottom: 1px dotted #777; padding: 0 3px; }
 
-/* Облако тегов */
+/* Cloud of tags */
 .tag-cloud { text-align: center; }
 .tag-cloud li { line-height: 24px; }
 .tag-cloud li .tag-size-1 { font-size: 12px; }
@@ -180,8 +180,9 @@ body.light .site-info { margin-bottom: 40px; }
 .item-list li p { margin-bottom: 4px; }
 .item-list li .author { font-weight: bold; }
 
-/* Разное */
+/* Others */
 .loader { background: #f5f5f5 url(../images/loader.gif) 50% 50% no-repeat; }
+.widget-content .loader { min-height: 20px; }
 
 .alert ul { margin-bottom: 0; }
 
@@ -192,7 +193,7 @@ body.light .site-info { margin-bottom: 40px; }
 
 
 /* -------------------------------------------------------------------
-	ФОРМАТИРОВАННЫЙ ТЕКСТ
+    FORMATTED TEXT
 ------------------------------------------------------------------- */
 
 .text { overflow: hidden; zoom: 1; }
@@ -218,7 +219,7 @@ body.light .site-info { margin-bottom: 40px; }
 
 
 /* -------------------------------------------------------------------
-	ФОРМЫ
+    FORMS
 ------------------------------------------------------------------- */
 
 form .icon-question-sign { cursor: help; }
@@ -237,7 +238,7 @@ form .icon-question-sign { cursor: help; }
 select, input[type="file"] { height: auto; }
 
 
-/* Валидатор (регистрация) */
+/* Validator (registration) */
 .validate-error-hide { display: none; }
 
 .captcha { display: block; }
@@ -245,7 +246,7 @@ select, input[type="file"] { height: auto; }
 
 
 /* --------------------------------------------
-	НАВИГАЦИЯ
+    NAVIGATION
 -------------------------------------------- */
 
 /* Dropdown */
@@ -255,7 +256,7 @@ select, input[type="file"] { height: auto; }
 
 
 /* -------------------------------------------------------------------
-	ИКОНКИ 
+    ICONS
 ------------------------------------------------------------------- */
 
 .icon-contact { display: inline-block; width: 16px; height: 16px; vertical-align: text-top; background: url(../images/icons-contact.png) no-repeat; }
@@ -280,7 +281,7 @@ select, input[type="file"] { height: auto; }
 
 
 /* -------------------------------------------------------------------
-	ТАБЛИЦЫ
+    TABLES
 ------------------------------------------------------------------- */
 
 .table thead a { text-decoration: none; }
@@ -291,28 +292,28 @@ select, input[type="file"] { height: auto; }
 
 
 /* Table Blogs */
-.table.table-blogs .cell-name .avatar { float: left; margin-right: 15px; }
+.table-blogs .cell-name .avatar { float: left; margin-right: 15px; }
 
-.table.table-blogs .cell-join { width: 130px; text-align: center; vertical-align: middle; }
-.table.table-blogs .cell-readers { width: 86px; text-align: center; vertical-align: middle; }
-.table.table-blogs .cell-rating { width: 71px; text-align: center; vertical-align: middle; }
+.table-blogs .cell-join { width: 130px; text-align: center; vertical-align: middle; }
+.table-blogs .cell-readers { width: 86px; text-align: center; vertical-align: middle; }
+.table-blogs .cell-rating { width: 71px; text-align: center; vertical-align: middle; }
 
 
 /* Table Users */
-.table.table-users .cell-name .avatar { float: left; margin-right: 15px; }
-.table.table-users .cell-name .name { float: left; width: 120px; }
+.table-users .cell-name .avatar { float: left; margin-right: 15px; }
+.table-users .cell-name .name { float: left; width: 120px; }
 
-.table.table-users .cell-name .name.no-realname { margin-top: 10px; }
-.table.table-users .cell-name .username { margin: 3px 0 3px 0; }
-.table.table-users .cell-name .realname { margin: 0; }
+.table-users .cell-name .name.no-realname { margin-top: 10px; }
+.table-users .cell-name .username { margin: 3px 0 3px 0; }
+.table-users .cell-name .realname { margin: 0; }
 
-.table.table-users .cell-date { width: 130px; }
-.table.table-users .cell-rating,
-.table.table-users .cell-skill { width: 72px; text-align: center; }
+.table-users .cell-date { width: 130px; }
+.table-users .cell-rating,
+.table-users .cell-skill { width: 72px; text-align: center; }
 
-.table.table-users tbody .cell-date, 
-.table.table-users tbody .cell-skill, 
-.table.table-users tbody .cell-rating { vertical-align: middle; }
+.table-users tbody .cell-date,
+.table-users tbody .cell-skill,
+.table-users tbody .cell-rating { vertical-align: middle; }
 
 
 /* Table Talk */
@@ -335,14 +336,10 @@ select, input[type="file"] { height: auto; }
 /* Table Profile Info */
 .table.table-profile-info .cell-label { width: 33%; }
 
-/* Table Plugins */
-.table.table-plugins h4 { margin-top: 0; }
-.table.table-plugins .cell-checkbox { width: 16px; }
-
 
 
 /* --------------------------------------------
-	ТОПИК
+    TOPIC
 -------------------------------------------- */
 
 .topic { overflow: hidden; zoom: 1; }
@@ -456,10 +453,10 @@ select, input[type="file"] { height: auto; }
 
 
 /* --------------------------------------------
-	КОММЕНТАРИИ
+    COMMENTS
 -------------------------------------------- */
 
-/* Блок с комментариями */
+/* Widget with comments */
 .comments-header { margin-bottom: 30px; position: relative; font-weight: bold; }
 .comments-header .subscribe { position: absolute; right: 0; font-weight: normal; display: inline-block; vertical-align: middle; }
 
@@ -469,12 +466,12 @@ select, input[type="file"] { height: auto; }
 .comment-preview { padding: 15px; margin-bottom: 10px; background-color: #f5f5f5; }
 
 
-/* Комментарий */
+/* Comment */
 .comment { min-height: 92px; position: relative; }
 .comment .comment-avatar { position: absolute; }
 
 
-/* Типы комментариев */
+/* Types of comments */
 .comment.comment-bad .comment-content { opacity: 0.3; filter: alpha(opacity=30); }
 .comment.comment-bad:hover { opacity: 1; filter: alpha(opacity=100); }
 
@@ -493,7 +490,7 @@ select, input[type="file"] { height: auto; }
 .comment .comment-actions { margin: 10px 0 0; }
 
 
-/* Форма комментирования */
+/* Reply form */
 .reply { padding: 15px; }
 .reply textarea { height: 100px; }
 .reply textarea.loader { background: #f5f5f5 url(../images/loader.gif) no-repeat center; }
@@ -501,7 +498,7 @@ select, input[type="file"] { height: auto; }
 .reply .mceEditor { display: block; margin-bottom: 10px; }
 
 
-/* Лента комментариев */
+/* Stream of comments */
 .comment-path { margin-top: 20px; padding: 5px 0; }
 
 
@@ -558,20 +555,20 @@ select, input[type="file"] { height: auto; }
 
 
 /* --------------------------------------------
-	МОДАЛЬНЫЕ ОКНА
+    MODAL WINDOWS
 -------------------------------------------- */
 .modal .modal-dialog { overflow: hidden; }
 
 
-/* Изменение фотографии */
+/* Change photo */
 .modal.modal-upload-photo .modal-dialog { width: 350px; }
 
 
-/* Изменение аватара */
+/* Change avatar */
 .modal.modal-upload-avatar .modal-dialog { width: 350px; }
 
 
-/* Добавление топика */
+/* Add content */
 .modal-write .modal-dialog { width: 692px; }
 
 .modal-write-list li { text-align: center; }
@@ -589,7 +586,7 @@ select, input[type="file"] { height: auto; }
 
 
 /* --------------------------------------------
-	БЛОГ
+    BLOG
 -------------------------------------------- */
 
 .blog { overflow: hidden; }
@@ -624,11 +621,11 @@ select, input[type="file"] { height: auto; }
 
 
 /* --------------------------------------------
-	СТРАНИЦА ПОЛЬЗОВАТЕЛЯ
+    PROFILE
 -------------------------------------------- */
 
 .profile-header, .profile-content { min-height: 64px; margin-bottom: 30px; position: relative; }
-.profile-header-info { padding: 0 0 0 72px; position: relative; }
+.profile-header-info { padding: 0 0 0 72px; position: relative; min-height: 64px; }
 .profile-header-submenu { padding-top: 5px; border-top: 1px solid #eee; }
 
 .profile-header .avatar { position: absolute; top: 0; left: 0; }
@@ -644,7 +641,7 @@ select, input[type="file"] { height: auto; }
 .profile-info-about h3 { margin-top: 0; }
 
 
-/* Настройки */
+/* Settings */
 #user-field-contact-container .form-control { display: inline;  }
 #user-field-contact-container .icon-remove { position: relative; top: -1px; vertical-align: middle; }
 #user-field-contact-container .user-field-item { margin-bottom: 10px; }
@@ -653,7 +650,7 @@ select, input[type="file"] { height: auto; }
 
 
 /* --------------------------------------------
-	СТЕНА
+    WALL
 -------------------------------------------- */
 
 .wall-submit { margin-bottom: 20px; padding: 15px; position: relative; }
@@ -674,7 +671,7 @@ select, input[type="file"] { height: auto; }
 
 
 /* --------------------------------------------
-	ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ
+    TOOLTIPS
 -------------------------------------------- */
 
 .infobox { visibility: hidden; position: absolute; top: 0; left: 0; z-index: 9999; text-align: left; min-width: 50px; max-width: 300px; }
@@ -688,24 +685,24 @@ select, input[type="file"] { height: auto; }
 
 
 /* --------------------------------------------
-	ВСПЛЫВАЮЩИЕ УВЕДОМЛЕНИЯ
+    NOTIFIERS
 -------------------------------------------- */
 
 #notifier { 
-	position: fixed; 
-	z-index: 9999; 
-	
-	/* IE 6 Fix */
-	_position: absolute; 
-	_top: expression( eval(document.documentElement.scrollBottom) + 10 +"px" );
+    position: fixed;
+    z-index: 9999;
+
+    /* IE 6 Fix */
+    _position: absolute;
+    _top: expression( eval(document.documentElement.scrollBottom) + 10 +"px" );
 }
 
 
 #notifier .n-box { 
-	position: relative; 
-	padding: 10px 15px 11px; 
-	margin-bottom: 10px;
-	cursor: pointer;
+    position: relative;
+    padding: 10px 15px 11px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 
 #notifier .n-box h3 { margin-top: 0; }
