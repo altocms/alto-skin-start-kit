@@ -11,3 +11,5 @@ Design by Creatime.org
 You can free modify and distribute this skin for any your purposes.
 Also you can remove copirights without any conditions.
 
+Last stable version of this skin is included into Alto CMS: https://github.com/altocms/altocms 
+
