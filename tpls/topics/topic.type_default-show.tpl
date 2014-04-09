@@ -111,27 +111,28 @@
                                                 onclick="jQuery('#topic_share_' + '{$oTopic->getId()}').slideToggle(); return false;"></a>
                 </li>
 
-                <li id="vote_area_topic_{$oTopic->getId()}"
-                    class="pull-right vote
+                {$sVoteClass = ""}
                 {if $oVote OR E::UserId()==$oTopic->getUserId() OR strtotime($oTopic->getDateAdd())<$smarty.now-Config::Get('acl.vote.topic.limit_time')}
                     {if $oTopic->getRating() > 0}
-                        vote-count-positive
+                        {$sVoteClass = "$sVoteClass vote-count-positive"}
                     {elseif $oTopic->getRating() < 0}
-                        vote-count-negative
+                        {$sVoteClass = "$sVoteClass vote-count-negative"}
                     {/if}
                 {/if}
-
                 {if $oVote}
-                    voted {if $oVote->getDirection() > 0} voted-up {elseif $oVote->getDirection() < 0} voted-down{/if}
-                {/if}">
-
-                    {if $oTopic->isVoteInfoShow()}
-                        {$bVoteInfoShow=true}
+                    {$sVoteClass = "$sVoteClass voted"}
+                    {if $oVote->getDirection() > 0}
+                        {$sVoteClass = "$sVoteClass voted-up"}
+                    {elseif $oVote->getDirection() < 0}
+                        {$sVoteClass = "$sVoteClass voted-down"}
                     {/if}
-                    <div class="vote-up" onclick="return ls.vote.vote({$oTopic->getId()},this,1,'topic');"><span
-                                class="glyphicon glyphicon-plus-sign"></span></div>
-                    <div class="vote-count {if $bVoteInfoShow}js-infobox-vote-topic{/if}"
-                         id="vote_total_topic_{$oTopic->getId()}"
+                {/if}
+                {if $oTopic->isVoteInfoShow()}
+                    {$bVoteInfoShow=true}
+                {/if}
+                <li class="pull-right vote js-vote {$sVoteClass}" data-target-type="topic" data-target-id="{$oTopic->getId()}">
+                    <div class="vote-up js-vote-up"><span class="glyphicon glyphicon-plus-sign"></span></div>
+                    <div class="vote-count js-vote-rating {if $bVoteInfoShow}js-infobox-vote-topic{/if}"
                          title="{$aLang.topic_vote_count}: {$oTopic->getCountVote()}">
                         {if $bVoteInfoShow}
                             {if $oTopic->getRating() > 0}+{/if}{$oTopic->getRating()}
@@ -139,8 +140,7 @@
                             <a href="#" onclick="return ls.vote.vote({$oTopic->getId()},this,0,'topic');">?</a>
                         {/if}
                     </div>
-                    <div class="vote-down" onclick="return ls.vote.vote({$oTopic->getId()},this,-1,'topic');"><span
-                                class="glyphicon glyphicon-minus-sign"></span></div>
+                    <div class="vote-down js-vote-down"><span class="glyphicon glyphicon-minus-sign"></span></div>
                     {if $bVoteInfoShow}
                         <div id="vote-info-topic-{$oTopic->getId()}" style="display: none;">
                             <ul class="list-unstyled vote-topic-info">
